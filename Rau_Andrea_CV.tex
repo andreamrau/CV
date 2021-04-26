@@ -1,1124 +1,1147 @@
-%July 21, 2020
-\documentclass[11pt,a4paper]{article}
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for CV/Resume
+%
+% This template has been downloaded from:
+% https://github.com/posquit0/Awesome-CV
+%
+% Author:
+% Claud D. Park <posquit0.bj@gmail.com>
+% http://www.posquit0.com
+%
+%
+% Adapted to be an Rmarkdown template by Mitchell O'Hara-Wild
+% 23 November 2018
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+%
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt, a4paper]{awesome-cv}
+
+% Configure page margins with geometry
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+% Specify the location of the included fonts
+\fontdir[fonts/]
+
+% Color for highlights
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+
+\colorlet{awesome}{awesome-red}
+
+% Colors for text
+% Uncomment if you would like to specify your own color
+% \definecolor{darktext}{HTML}{414141}
+% \definecolor{text}{HTML}{333333}
+% \definecolor{graytext}{HTML}{5D5D5D}
+% \definecolor{lighttext}{HTML}{999999}
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{true}
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+\def\endfirstpage{\newpage}
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+
+\name{Andrea}{Rau}
+
+\position{Research Scientist • Chargée de Recherche}
+\address{INRAE • French National Research Institute for Agriculture,
+Food and Environment}
+
+\mobile{+33 1 34 65 22 82}
+\email{\href{mailto:andrea.rau@inrae.fr}{\nolinkurl{andrea.rau@inrae.fr}}}
+\homepage{andrea-rau.com}
+\orcid{0000-0001-6469-488X}
+\googlescholar{9\_\_bzfgAAAAJ}
+\github{andreamrau}
+\twitter{andreamrau}
+
+% \gitlab{gitlab-id}
+% \stackoverflow{SO-id}{SO-name}
+% \skype{skype-id}
+% \reddit{reddit-id}
 
 
-\usepackage{amssymb,amsfonts,graphics}
-\usepackage[latin1]{inputenc}
-\usepackage{amsmath}
-\usepackage{a4wide}
-\usepackage[francais]{babel}
-\usepackage[T1]{fontenc}
-\usepackage{color}
-\usepackage{latexsym}
-\usepackage{longtable}
-\usepackage{float}
-%\usepackage{natbib}
-\usepackage{url}
-\usepackage{fancyhdr}
-\usepackage{longtable}
-\usepackage{palatino}
+\usepackage{booktabs}
 
-%\pagestyle{plain}
+\providecommand{\tightlist}{%
+	\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-\setlength{\oddsidemargin}{0cm} \setlength{\evensidemargin}{0cm}
-\setlength{\textwidth}{16cm} \setlength{\textheight}{24.2cm}
-\setlength{\topmargin}{-1.5cm}
-\newcommand{\ybf}{\mathbf{y}}
-\newcommand{\xbf}{\mathbf{x}}
-
-\newcommand{\BIC}{\mbox{BIC}}
-
-\DeclareMathOperator*{\argmin}{\mbox{argmin}}
-\DeclareMathOperator*{\argmax}{\mbox{argmax}}
-\DeclareMathOperator*{\vp}{\mbox{vp}}
-\DeclareMathOperator*{\rg}{rg} \DeclareMathOperator*{\tr}{tr}
-\DeclareMathOperator*{\Cov}{cov}
-\DeclareMathOperator*{\Var}{\mbox{Var}}
-\DeclareMathOperator*{\lambdam}{\lambda_{\mbox{\tiny m}}}
-\DeclareMathOperator*{\lambdaM}{\lambda_{\mbox{\tiny M}}}
-\DeclareMathOperator*{\sh}{sh} \DeclareMathOperator*{\ch}{ch}
-\DeclareMathOperator*{\1d}{1+\delta}
-\DeclareMathOperator*{\betam}{\beta_{\mbox{\tiny m}}}
-\DeclareMathOperator*{\betaM}{\beta_{\mbox{\tiny M}}}
-\def \ud {\mathrm{d}}
-\def \R {\mathbb R}
-\def \E {\mathbb E}
-\def \S {\mathcal S}
-\def \vr {\mathbf v}
-\DeclareMathOperator*{\pen}{pen}
-\DeclareMathOperator*{\critp}{crit}
-\DeclareMathOperator*{\card}{card}
-\DeclareMathOperator*{\diag}{diag} \DeclareMathOperator*{\KL}{KL}
-\def \indi {1\hspace{-0.1cm}\textrm{I}}
-
-\newcommand{\entete}[1]{
-\begin{center}
-{\huge \bf{#1}}\\
-\vspace*{-0.3cm} \rule{\textwidth}{1pt}
-\end{center}
-\vspace*{0.1cm}}
+%------------------------------------------------------------------------------
 
 
-\pagestyle{fancy}
-\fancyhf{}
-%\fancyfoot[LE,RO]{A. Rau, CV \hspace*{\fill} 2018, Page \thepage\, of \pageref{TotalPageNumber}}
-\fancyfoot[LE,RO]{A. Rau, CV \hspace*{\fill}  {\it last updated July 21, 2020}, Page \thepage\, of 17}
-%\pageref{TotalPageNumber}}
-\renewcommand{\headrulewidth}{0pt}
 
-
-\newcounter{notetab}
-\newcommand{\zero}{\setcounter{notetab}{0}}
-\newcommand{\ntm}{\footnotemark\addtocounter{notetab}{1}}
-\newcommand{\initnt}{\addtocounter{footnote}{-\value{notetab}}}
-\newcommand{\ntt}[1]{%
-   \addtocounter{footnote}{1}
-   \footnotetext{#1}}
+% Pandoc CSL macros
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[3] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
+  % set entry spacing
+  \ifnum #2 > 0
+  \setlength{\parskip}{#2\baselineskip}
+  \fi
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 \begin{document}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% TOP-MATTER
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Print the header with above personal informations
+% Give optional argument to change alignment(C: center, L: left, R: right)
+\makecvheader
 
-\entete{Andrea Rau
-}
-
-\setlength{\parindent}{0mm}
-\vspace*{-0.4cm}
-\begin{table}[H]
-\begin{tabular}{@{\hspace{3mm}}p{2.8in}@{\hspace{3cm}}r@{}}
-
-%\textbf{Professional address}				& \\
-INRAE											& phone: (+33) (0) 1 34 65 22 82\\
-GABI (GiBBS team)									& email : andrea.rau@inrae.fr\\
-Domaine de Vilvert								& Twitter : @andreamrau\\
-78350 Jouy-en-Josas, France					& 		\url{https://andrea-rau.com}\\
-& \\
-INRAE				& phone: (+33) (0) 3 22 85 76 90 \\
-BioEcoAgro			& \\
-2 Chauss{\'e}e Brunehaut & \\
-50136 Estr{\'e}es-Mons, France				& \\
-%& \\
-%\multicolumn{2}{l}{\hspace{1mm}Born November 29, 1982 in Minot, North Dakota (USA)} \\
-%American citizen, married, 1 child               		&       \\
-\end{tabular}
-\end{table}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Current situation
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\colorbox[gray]{0.8}{\makebox[\textwidth][l]{\Large{ \bf{Current position}}}}
-\begin{table}[H]
-\begin{tabular}{@{\hspace{3mm}}l}
-$\bullet$ Research Scientist ({\it Charg{\'e}e de Recherche}) at INRAE \\[1.5mm]
-
-\end{tabular}
-\end{table}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Education
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\colorbox[gray]{0.8}{\makebox[\textwidth][l]{\Large{ \bf{Education}}}}
-\begin{table}[H]
-\begin{tabular}{@{\hspace{3mm}}ll@{}}
-\texttt{2017} & \textbf{HDR$^*$ in Applied Mathematics}, Universit{\'e} d'{\'E}vry-Val-d'Essonne ({\'E}vry, France)\\
-		& obtained September 26, 2017. \\[1.2mm]
-		& \textit{Title} : Statistical methods and software for the analysis of transcriptomic data.\\
-		& \footnotesize{$^*$An HDR is the French accreditation to supervise research and represents the highest French}\\
-		& \footnotesize{academic qualification level based on independent scholarship. It is reviewed by and defended}\\
-		& \footnotesize{before an academic committee.}\\[1.5mm]
-		
-\texttt{2007-2010} & \textbf{Ph.D. in Statistics}, Purdue University (West Lafayette, Indiana, USA)\\
-                   & obtained August 6, 2010.\\[1.2mm]
-                   & \textit{Title} : Reverse engineering gene regulatory networks using genomic time-course\\
-                   & \hspace*{1.1cm} data.\\
-                   &\textit{Advisors} : Rebecca W. Doerge, Jean-Louis Foulley, and Florence Jaffr{\'e}zic\\[1.5mm]
-\texttt{2005-2007} & \textbf{M.S. (Master of Science) in Appied Statistics}, Purdue University (West\\
-					& Lafayette, Indiana, USA).\\[1.2mm]
-					& {\it Internship :} Using time series and intervention models to analyze the effect of\\
-					& advertising changes on store stales for the pharmacy chain Walgreens (Deerfield,\\ 
-					& Illinois, USA)\\[1.5mm]
-\texttt{2001-2005} & \textbf{B.A. (Bachelor of Arts) in French and B.A. in Mathematics},\\
-					& concentration in Statistics (with distinction), Saint Olaf College (Northfield,\\
-					& Minnesota, USA).\\[1.2mm]
-					& {\it Internship :} Application of pharmacokinetic analysis literature to data from a Phase\\
-					& I clinical trial and determination of a limited-sample model, under the direction of\\
-					& Alfred Furth at the Mayo Clinic (Rochester, Minnesota, USA)\\
-\end{tabular}
-\end{table}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Work experience
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newpage
-\colorbox[gray]{0.8}{\makebox[\textwidth][l]{\Large{ \bf{Work experience}}}}
-\begin{table}[H]
-\begin{tabular}{@{\hspace{3mm}}ll@{}}
-\texttt{2016-present} & \textbf{Research Scientist}  ({\it Charg{\'e}e de Recherche}), INRA \\
-				& (Jouy-en-Josas, France)\\[1.5mm]
-\texttt{2019} & \textbf{Adjunct Assistant Professor} (4 months), Medical College of Wisconsin \\
-				& Milwaukee, Wisconsin, USA\\[1.5mm]
-\texttt{2017-2019} & \textbf{AgreenSkills+ Visiting Scholar}  (20 months), Zilber School of Public Health,  \\
-				& University of Wisconsin-Milwaukee\\[1.5mm]
-\texttt{2016} & \textbf{Visiting Scholar} (6 weeks), Zilber School of Public Health, University of \\
-				& Wisconsin-Milwaukee\\[1.5mm]
-\texttt{2012-2017} & \textbf{Adjunct Assistant Professor}, Ensai  \\
-				& (Rennes, France)\\[1.5mm]
-\texttt{2011-2016} & \textbf{Junior Research Scientist}  ({\it Charg{\'e}e de Recherche} 2nd class, CR2), INRA \\
-				& (Jouy-en-Josas, France)\\[1.5mm]
-\texttt{2010-2011} & \textbf{Post-doctoral researcher}, Inria - {\^I}le-de-France (Orsay, France)\\
-                   & \textit{Subject} : Clustering RNA sequencing data.\\
-                   &\textit{Advisors} : Gilles Celeux and Marie-Laure Martin-Magniette\\[1.5mm]
-\texttt{2008-2010} 	& \textbf{Research assistant} for R. W. Doerge, Department of Statistics at Purdue \\
-					& University (West Lafayette, Indiana, USA) \\[1.5mm]
-\texttt{2007} 		& \textbf{Consultant} in the Statistical Consulting Service, Department of Statistics at\\ 
-					& Purdue University (West Lafayette, Indiana, USA) \\
-\end{tabular}
-\end{table}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Research subjects
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\colorbox[gray]{0.8}{\makebox[\textwidth][l]{\Large{ \bf{Research subjects}}}} \vspace*{0.2cm}
-
-\textit{Research themes} : Analysis of high-throughput sequencing data (RNA-seq, ATAC-seq), mixture models, supervised classification methods, multi-omic integration, gene regulatory networks \\
-\\
-\textit{Areas of application} : Genomic and transcriptomic data \\
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+% 2019-02-14 Chris Umphlett - add flexibility to the document name in footer, rather than have it be static Curriculum Vitae
+\makecvfooter
+  {April 2021}
+    {Andrea Rau~~~·~~~Curriculum Vitae}
+  {\thepage}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Computer programs
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\colorbox[gray]{0.8}{\makebox[\textwidth][l]{\Large{ \bf{Skills}}}}
-\vspace{0.2cm}
-
-\begin{tabular}{@{\hspace{3mm}}lll@{}}
-\textit{Computing}  & Operating systems  & Linux, Windows\\
-                       & Languages 	& C, HTML\\
-                       & Programs  & R, \LaTeX \\
-\\
-\textit{Languages} 	&  English &  Maternal language\\
-					& French & 	Fluent (read, written, spoken)\\
-\end{tabular}
-\vspace*{0.2cm}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Awards
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\colorbox[gray]{0.8}{\makebox[\textwidth][l]{\Large{ \bf{Awards}}}}
-\vspace*{-0.2cm}
-\begin{longtable}{@{\hspace{3mm}}p{13.5cm}r}
-%\begin{table}[H]
-%\begin{tabular}{@{\hspace{3mm}}p{13.5cm}r}
-$\bullet$ Graduate Women in Science Programs travel award & \texttt{2010}\\  [1.2mm]  
-$\bullet$ Student travel award, Conference on Applied Statistics in Agriculture at & \texttt{2010}\\
-  Kansas State University &\\[1.2mm]  
-$\bullet$ VIGRE Fellowship, Purdue University & \texttt{2005-2010}\\[1.2mm]                                               
-$\bullet$ Honorable mention, Gertrude M. Cox Scholarship & \texttt{2009}\\[1.2mm]
-$\bullet$ Graduate student scholarship, Gordon Conference on Quantitative Genetics  & \texttt{2009}\\[1.2mm]
-and Genomics & \\[1.2mm]
-$\bullet$ BioC Conference graduate student scholarship & \texttt{2009}\\[1.2mm]
-$\bullet$ A.H. Ismail Interdisciplinary Program doctoral research travel award & \texttt{2009}\\[1.2mm]
-$\bullet$ Buntrock academic scholarship, Saint Olaf College & \texttt{2001}\\[1.2mm]
-$\bullet$ National Merit Scholar & \texttt{2001}\\[1.2mm]
-$\bullet$ Presidential Scholar & \texttt{2001}\\
-%\end{tabular}
-%\end{table}
-\end{longtable}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Organizations
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\colorbox[gray]{0.8}{\makebox[\textwidth][l]{\Large{ \bf{Professional organizations}}}}
-\begin{table}[H]
-\begin{tabular}{@{\hspace{3mm}}l}
-$\bullet$ Soci{\'e}t{\'e} Fran\c{c}aise de Statistique (SFdS, 2011-present) \\ [1.2mm]     
-$\bullet$ American Statistical Association (ASA, 2005-present) \\ [1.2mm]
-%$\bullet$ Phi Beta Kappa (2005-present) \\                                             
-\end{tabular}
-\end{table}
+%-------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%	Each section is imported separately, open each file in turn to modify content
+%------------------------------------------------------------------------------
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PUBLICATIONS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\colorbox[gray]{0.8}{\makebox[\textwidth][l]{\Large{ \bf{Books}}}}\\
+\hypertarget{about-me}{%
+\section{About me}\label{about-me}}
+
+My research is focused on developing and writing software for sound
+statistical methods for genomic and transcriptomic data analysis,
+including differential expression analyses, co-expression analyses,
+network inference, and integrative multi-omic analyses.
+
+I currently belong to two INRAE labs:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www6.jouy.inra.fr/gabi_eng/}{\textbf{Animal Genetics and
+  Integrative Biology}} (GABI) research unit (Jouy en Josas, France) in
+  the Genomics, Biodiversity, Bioinformatics, Statistics (GiBBS) team\\
+\item
+  Cross-border \href{https://www.bioecoagro.eu/}{\textbf{BioEcoAgro}}
+  research unit (Estrées-Mons, France)
+\end{itemize}
+
+\emph{Keywords}: Analysis of high-throughput sequencing data, mixture
+models, supervised classification methods, multi-omic integration, gene
+regulatory networks
+
+\emph{Languages}: English (maternal), French (fluent)
+
+\hypertarget{education}{%
+\section{Education}\label{education}}
+
+\begin{cventries}
+    \cventry{Université d’Évry-Val-d’Essonne}{HDR in Applied Mathematics}{2017}{Évry, France}{\begin{cvitems}
+\item Title: ``Statistical methods and software for the analysis of transcriptomic data" \\ Note: An HDR is the French accreditation to supervise research and represents the highest French academic qualification level based on independent scholarship. It is reviewed by and defended before an academic committee.
+\end{cvitems}}
+    \cventry{Inria - Île-de-France}{Postdoctoral researcher}{2010-2011}{Orsay, France}{\begin{cvitems}
+\item Subject: "Clustering RNA sequencing data" \\ Advisors: Gilles Celeux and Marie-Laure Martin-Magniette
+\end{cvitems}}
+    \cventry{Purdue University}{PhD in Statistics}{2007-2010}{West Lafayette, Indiana, USA}{\begin{cvitems}
+\item Title: Reverse engineering gene regulatory networks using genomic time-course data \\ Advisors: Rebecca W. Doerge, Jean-Louis Foulley, and Florence Jaffrézic
+\end{cvitems}}
+    \cventry{Purdue University}{MS in Applied Statistics}{2005-2007}{West Lafayette, Indiana, USA}{\begin{cvitems}
+\item Internship: Time series modeling of advertising interventions on pharmacy sales (Walgreens; Deerfield, Illinois, USA)
+\end{cvitems}}
+    \cventry{Saint Olaf College}{BA in French and Mathematics (concentration in Statistics}{2001-2005}{Northfield, Minnesota, USA}{\begin{cvitems}
+\item Internship: pharmacokinetic analysis of Phase I clinical trial data using a limited-sample model (Mayo Clinic; Rochester, Minnesota, USA)
+\end{cvitems}}
+\end{cventries}
+
+\hypertarget{work-experience}{%
+\section{Work experience}\label{work-experience}}
+
+\begin{cventries}
+    \cventry{INRAE}{Research Scientist (Chargée de Recherche)}{2011-present}{Jouy-en-Josas, France}{}\vspace{-4.0mm}
+    \cventry{Medical College of Wisconsin (4 months)}{Adjunct Assistant Professor}{2019}{Milwaukee, Wisconsin, USA}{}\vspace{-4.0mm}
+    \cventry{Zilber School of Public Health, University of Wisconsin-Milwaukee (20 months)}{AgreenSkills+ Visiting Scholar}{2017-2019}{Milwaukee, Wisconsin, USA}{}\vspace{-4.0mm}
+    \cventry{Zilber School of Public Health, University of Wisconsin-Milwaukee  (6 weeks)}{Visiting Scholar}{2016}{Milwaukee, Wisconsin, USA}{}\vspace{-4.0mm}
+    \cventry{Ensai}{Adjunct Assistant Professor}{2012-2017}{Rennes, France}{}\vspace{-4.0mm}
+    \cventry{Inria - Île-de-France}{Post-doctoral researcher}{2010-2011}{Orsay, France}{}\vspace{-4.0mm}
+    \cventry{Department of Statistics, Purdue University (R. W. Doerge}{Research assistant}{2008-2010}{West Lafayette, Indiana, USA}{}\vspace{-4.0mm}
+    \cventry{Department of Statistics, Purdue University}{Consultant in the Statistical Consulting Service}{2007}{West Lafayette, Indiana, USA}{}\vspace{-4.0mm}
+\end{cventries}
+
+\hypertarget{awards}{%
+\section{Awards}\label{awards}}
+
+\begin{cvhonors}
+    \cvhonor{}{Graduate Women in Science Programs travel award}{2010}{\rightarrow}
+    \cvhonor{}{Student travel award, Conference on Applied Statistics in Agriculture at Kansas State University}{2010}{\rightarrow}
+    \cvhonor{}{VIGRE Fellowship, Purdue University}{2005-2010}{\rightarrow}
+    \cvhonor{}{Honorable mention, Gertrude M. Cox Scholarship}{2009}{\rightarrow}
+    \cvhonor{}{Graduate student scholarship, Gordon Conference on Quantitative Genetics and Genomics}{2009}{\rightarrow}
+    \cvhonor{}{BioC Conference graduate student scholarship}{2009}{\rightarrow}
+    \cvhonor{}{A.H. Ismail Interdisciplinary Program doctoral research travel award}{2009}{\rightarrow}
+    \cvhonor{}{Presidential Scholar}{2001}{\rightarrow}
+\end{cvhonors}
+
+\hypertarget{professional-organizations}{%
+\section{Professional organizations}\label{professional-organizations}}
+
+\begin{cvhonors}
+    \cvhonor{}{Société Française de la Statistique}{2011-present}{SFdS}
+    \cvhonor{}{American Statistical Association}{2005-present}{ASA}
+\end{cvhonors}
+
+\hypertarget{dissertations-books-book-chapters}{%
+\section{Dissertations, books \& book
+chapters}\label{dissertations-books-book-chapters}}
+
 \begin{enumerate}
-\item Albert, I., Ancelet, S., David, O., Denis, J.-B., Makowski, D., Parent, {\'E}., \textbf{Rau, A.}, and Soubeyrand, S. (2015). {\it Initiation {\`a} la statistique bay{\'e}sienne: Bases th{\'e}oriques et applications en alimentation, environnmenet, {\'e}pid{\'e}miologie et g{\'e}n{\'e}tique}: {\'E}ditions Ellipses, collection r{\'e}f{\'e}rences sciences.
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Duranthon, V., Araújo, S., Palma, M., \textbf{Rau, A.}, Matzapetakis,
+  M., and Almeida, A. (2021) Rabbit research in the post-genomic era:
+  transcriptome, proteome, and metabolome analysis. \emph{In: The
+  Genetics and Genomics of the Rabbit.}, Ed. L. Fontanesi.
+\item
+  \textbf{Rau, A.} (2017) Statistical methods and software for the
+  analysis of transcriptomic data. \emph{HDR thesis}, Université d'Évry
+  Val-d'Essonne.
+\item
+  Martin-Magniette, M.-L., Maugis-Rabusseau, C. and \textbf{Rau, A.}
+  (2017) Clustering of co-expressed genes. \emph{In: Model Choice and
+  Model Aggregation}, Ed. F. Bertrand, J.-J. Droesbeke, G. Saporta, C.
+  Thomas-Agnan.
+\item
+  Albert, I., Ancelet, S., David, O., Denis, J.-B., Makowski, D.,
+  Parent, É., \textbf{Rau, A.}, and Soubeyrand, S. (2015) Initiation à
+  la statistique bayésienne : Bases théoriques et applications en
+  alimentation, environnmenet, épidémiologie et génétique.
+  \emph{Éditions Ellipses}, collection références sciences.
+\item
+  \textbf{Rau, A.} (2010) Reverse engineering gene networks using
+  genomic time-course data.. \emph{PhD thesis}, Purdue University.
 \end{enumerate}
-\vspace{.5cm}
 
+\hypertarget{peer-reviewed-publications}{%
+\section{Peer-reviewed publications}\label{peer-reviewed-publications}}
 
-
-\colorbox[gray]{0.8}{\makebox[\textwidth][l]{\Large{ \bf{Peer-reviewed articles}}}}\\
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\vspace*{-.25cm}\begin{center} \textbf{2020} \end{center}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{enumerate}
-\item Sellem, E., Marthey, S., \textbf{Rau, A.}, Jouneau, L., Bonnet, A., Perrier, J.-P., Fritz, S., Le Danvic, C. Boussaha, M., Kiefer, H., Jammes, H., Schiblier, L. (2020) A comprehensive overview of bull sperm-borne small non-coding RNAs and their diversity in six breeds. \textit{Epigenetics and Chromatin} 13:19. doi: 10.1186/s13072-020-00340-0.
-%
-\item \textbf{Rau, A.}, Manansala, R., Flister, M. J., Rui, H., Jaffr{\'e}zic, F., Lalo{\"e}, D.$^\star$, and Auer, P. L.$^\star$ (2020) Individualized multi-omic pathway deviation scores using multiple factor analysis. \textit{Biostatistics} (accepted), https://doi.org/10.1101/827022.\\
-{\small $^\star$ These authors contributed equally to this work.}
-%
-\item Godichon-Baggioni, A., Maugis-Rabusseau, C. and \textbf{Rau, A.} (2020) Multi-view cluster aggregation and splitting, with an application to multi-omic breast cancer data. \textit{Annals of Applied Statistics}, 14:2, 752-767. 
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\vspace*{-.25cm}\begin{center} \textbf{2019} \end{center}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item Jehl, F., D{\'e}sert, C., Klopp, C., Brenet, M., \textbf{Rau, A.}, Leroux, S., Boutin, M., Muret, K., Blum, Y., Esquerr{\'e}, D., Gourichon, D., Burlot, T., Collin, A., Pitel, F., Benani, A., Zerjal, T., Lagarrigue, S. (2019) Chicken adaptive response to low energy diet: main role of the hypothalamic lipid metabolism revealed by a phenotypic and multi-tissue transcriptomic approach. \textit{BMC Genomics}, 20. doi: 10.1186/s12864-019-6384-8. 
-%
-\item Foissac, S., Djebali, S., Munyard, K., Villa-Vialaneix, N., \textbf{Rau, A.}, Muret, K., Esquerre, D., Zytnicki, M., Derrien, T., Bardou, P., Blanc, F., Cabau, C., Crisci, E., Dhorne-Pollet, S., Drouet, F., Gonzales, I., Goubil, A., Lacroix-Lamande, S., Laurent, F., Marthey, S., Marti-Marimon, M., Momal-Leisenring, R., Mompart, F., Quere, P., Robelin, D., San Cristobal, M., Tosser-Klopp, G., Vincent-Naulleau, S., Fabre, S., Pinard-Van der Laan, M.-H., Klopp, C., Tixier-Boichard, M., Acloque, H., Lagarrigue, S., Giuffra, E. (2019) Multi-species annotation of transcriptome and chromatin structure in domesticated animals. \textit{BMC Biology} 17: 108. 
-%
-\item Dhara, S., \textbf{Rau, A.}, Flister, M., Recka, N., Laiosa, M., Auer, P., and Udvadia, A. (2019) Cellular reprogramming for successful CNS axon regeneration is driven by a temporally changing cast of transcription factors. \textit{Scientific Reports} 9:14198, doi: 10.1038/s41598-019-50485-6. 
-%
-\item \textbf{Rau, A.}, Dhara, S., Udvadia, A., and Auer, P. (2019) Regeneration Rosetta: An interactive web application to explore regeneration-associated gene expression and chromatin accessibility. \textit{G3: Genes|Genomes|Genetics}, doi: 10.1534/g3.119.400729. 
-%
-\item Plasterer, C., Tsaih, S.-W., Lemke, A., Schilling, R., Dwinell, M., \textbf{Rau, A.}, Auer, P., Rui, H., Flister, M.J. (2019) Identification of a rat mammary tumor risk locus that is syntenic with the commonly amplified 8q12.1 and 8q22.1 regions in human breast cancer patients. \textit{G3: Genes|Genomes|Genetics} 9(5):1739-1743. doi: 10.1534/g3.118.200873. 
-%
-\item Ramayo-Caldas, Y., Zingaretti, L., Bernard, A., Estellé, J. Popova, M., Pons, N., Bellot, P., Mach, N., \textbf{Rau, A.}, Roume, H., Perez-Encisco, M., Faverdin, P., Edouard, N., Dusko, S., Morgavi, D.P. and Renand, G. (2019) Identification of rumen microbial biomarkers linked to methane emission in Holstein dairy cows. \textit{Journal of Animal Breeding and Genetics}, doi: 10.1111/jbg.12427. 
-%
-\item \textbf{Rau, A.}, Flister, M. J., Rui, H. and Livermore Auer, P. (2019) Exploring drivers of gene expression in The Cancer Genome Atlas. \textit{Bioinformatics}, 35(1):62-68.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{center}\hspace*{-.45in} \textbf{2018} \end{center}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-\item Godichon-Baggioni, A., Maugis-Rabusseau, C. and \textbf{Rau, A}. (2018) Clustering transformed compositional data using K-means, with applications in gene expression and bicycle sharing system data. \textit{Journal of Applied Statistics}, \\
-https://doi.org/10.1080/02664763.2018.1454894.
-%
-\item \textbf{Rau, A.} and Maugis-Rabusseau, C. (2018) Transformation and model choice for RNA-seq co-expression analysis. \textit{Briefings in Bioinformatics}, bbw128, \\
-https://doi.org/10.1093/bib/bbw128. 
-%
-\item Verrier, E., Genet, C., Lalo{\"e}, D., Jaffr{\'e}zic, J.,  \textbf{Rau, A.}, Esquerr{\'e}, D., Dechamp, N., Ciobataru, C., Hervet, C., Krieg, F., Quillet, E., Boudinot, P. (2018) Genetic and transcriptomic analyses provide new insights on the early antiviral response to VHSV in resistant and susceptible rainbow trout. \textit{BMC Genomics}, 19:482.
-%
-\item Maroilley, T., Berri, M., Lemonnier, G., Esquerr{\'e}, D., Chevaleyre, C., M{\'e}lo, S., Meurens, F., Coville, J.L., Leplat, J.J, \textbf{Rau, A.}, Bed'hom, B., Vincent-Naulleau, S., Mercat, M.J., Billon, Y., Lepage, P., Rogel-Gaillard, C., and Estell{\'e}, J. (2018). Immunome differences between porcine ileal and jejunal Peyer's patches revealed by global transcriptome sequencing of gut-associated lymphoid tissues. \textit{Scientific Reports}, 8:9077.
-%
-\item Mondet, F., \textbf{Rau, A.}, Klopp, C., Rohmer, M. Severac, D., Le Conte, Y., and Alaux, C. (2018). Transcriptome profiling of the honeybee parasite Varroa destructor provides new biological insights into the mite adult life cycle. \textit{BMC Genomics}, 19:328.
-%
-\item He, B., Tjhung, K., Bennett, N., Chou, Y., \textbf{Rau, A.}, Huang, J., and Derda, R. (2018). Compositional bias in na�ve and chemically-modified phage-displayed libraries uncovered by paired-end deep sequencing. \textit{Scientific Reports}, 8:1214.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{center}\hspace*{-.45in} \textbf{2017} \end{center}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-\item Monneret, G., Jaffr{\'e}zic, F., \textbf{Rau, A.}, Zerjal, T. and Nuel, G. (2017) Identification of marginal causal relationships in gene networks from observational and interventional expression data. \textit{PLoS One} 12(3): e0171142.
-%
-\item Sauvage, C., \textbf{Rau, A.}, Aichholz, C., Chadoeuf, J., Sarah, G., Ruiz, M., Santoni, S., Causse, M., David, J., Gl{\'e}min, S. (2017) Domestication rewired gene expression and nucleotide diversity patterns in tomato. \textit{The Plant Journal} 91(4):631-645.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{center}\hspace*{-.45in} \textbf{2016} \end{center}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-\item Rigaill, G., Balzergue, S., Brunaud, V., Blondet, E., \textbf{Rau, A.}, Rogier, O., Caius, J.,  Maugis-Rabusseau, C., Soubigou-Taconnat, L., Aubourg, S., Lurin, C., Martin-Magniette, M.-L., and Delannoy, E. (2016) Synthetic datasets for the identification of key ingredients for RNA-seq differential analysis. \textit{Briefings in Bioinformatics}, \\
-doi: https://doi.org/10.1093/bib/bbw092.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{center}\hspace*{-.45in} \textbf{2015} \end{center}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-\item Gallopin, M., Celeux, G., Jaffr{\'e}zic, F., \textbf{Rau, A.} (2015) A model selection criterion for model-based clustering of annotated gene expression data. \textit{Statistical Applications in Genetics and Molecular Biology}, 14(5): 413-428.
-%
-\item Monneret, G., Jaffr{\'e}zic, F., \textbf{Rau, A.}, Nuel, G. (2015). Estimation d'effets causaux dans les r{\'e}seaux de r{\'e}gulation g{\'e}nique: vers la grande dimension. \textit{Revue d'intelligence artificielle}, 29(2): 205-227.
-%
-\item \textbf{Rau, A.}, Maugis-Rabusseau, C., Martin-Magniette, M.-L., Celeux, G. (2015) Co-expression analysis of high-throughput transcriptome sequencing data with Poisson mixture models. \textit{Bioinformatics}, 31(9): 1420-1427.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{center}\hspace*{-.45in} \textbf{2014} \end{center}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-\item \textbf{Rau, A.}, Marot, G., and Jaffr{\'e}zic, F. (2014). Differential meta-analysis of RNA-seq data from multiple studies. {\it BMC Bioinformatics} 15$:$91.
-%
-\item Nuel, G., \textbf{Rau, A.}, and Jaffr{\'e}zic, F. (2014) Using pairwise ordering preferences to estimate causal effects in gene expression from a mixture of observational and intervention experiments. {\it Quality Technology and Quantitative Management} 11(1)$:$23-37.
-%
-\item Endale Ahanda, M.-L., Zerjal, T., Dhorne-Pollet, S., \textbf{Rau, A.}, Cooksey, A., and Giuffra, E. (2014) Impact of the genetic background on the composition of the chicken plasma miRNome in response to a stress. \textit{PLoS One}, 9(12): e114598.
-%
-\item Brenault, P., Lefevre, L. \textbf{Rau, A.}, Lalo{\"e}, D., Pisoni, G., Moroni, P., Bevilacquia, C. and Martin, P. (2014) Contribution of mammary epithelial cells to the immune response during early stages of a bacterial infection to {\it Staphylococcus aureus}. {\it Veterinary Research} 45$:$16. 
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{center}\hspace*{-.45in} \textbf{2013} \end{center}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-\item \textbf{Rau, A.}, Jaffr{\'e}zic, F., and Nuel, G. (2013)  Joint estimation of causal effects from observational and intervention gene expression data. {\it BMC Systems Biology} 7$:$111.
-%arXiv$:$1307.8046.
-%
-\item Gallopin, M. \textbf{Rau, A.}, and Jaffr{\'e}zic, F. (2013). A hierarchical Poisson log-normal model for network inference from RNA sequencing data. {\it PLoS One} 8(10): e77503.
-%
-\item \textbf{Rau, A.}, Gallopin, M., Celeux, G., and Jaffr{\'e}zic, F. (2013). Data-based filtering for replicated high-throughput transcriptome sequencing experiments. {\it Bioinformatics} 29(17): 2146-2152.
-% doi$:$10.1093/bioinformatics/btt350.
-%
-\item Dillies, M.-A.$^\star$, \textbf{Rau, A.}$^\star$, Aubert, J.$^\star$, Hennequet-Antier, C.$^\star$, Jeanmougin, M.$^\star$, Servant, N.$^\star$, Keime, C.$^\star$, Marot, G., Castel, D., Estelle, J., Guernec, G., Jagla, B., Jouneau, L., Lalo{\"e}, D., Le Gall, C., Scha{\"e}ffer, B., Charif, D., Le Crom, S.$^\star$, Guedj, M.$^\star$, and Jaffr{\'e}zic, F$^\star$. (2013). A comprehensive evaluation of normalization methods for Illumina high-throughput RNA sequencing data analysis. {\it Briefings in Bioinformatics} 14(6) : 671-683.\\
-{\small $^\star$ These authors contributed equally to this work.}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{center}\hspace*{-.45in} \textbf{2012 and earlier} \end{center}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-\item \textbf{Rau, A.}, Jaffr{\'e}zic, F., Foulley, J.-L., and Doerge, R. W. (2012). Reverse engineering gene regulatory networks using approximate Bayesian computation. {\it Statistics and Computing}, 22: 1257-1271. 
-%
-\item \textbf{Rau, A.}, Jaffr{\'e}zic, F., Foulley, J.-L., and Doerge, R. W. (2010). An empirical Bayesian method for estimating biological networks from temporal microarray data. {\it Statistical Applications in Genetics and Molecular Biology}: Vol. 9: Iss. 1, Article 9.
-%
-\item Furth, A., Mandrekar, S., Tan, A. \textbf{Rau, A.}, Felten, S., Ames, M. Adjei, A. Erlichman, C. and Reid, J. (2008). A limited sample model to predict area under the drug concentration curve for 17-(allylamino)-17-demethoxygeldanamycin and its active metabolite 17-(amino)-17-demethoxygeldanomycin. {\it Cancer Chemotherapy Pharmacology} 61(1): 39-45.
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Sellem, E., Marthey, S., \textbf{Rau, A.}, Jouneau, L., Bonnet, A., Le
+  Danvic, C., Kiefer, H., Jammes, H., and Schibler, L. (2021) Dynamics
+  of cattle sperm sncRNAs during maturation, from testis to ejaculated
+  sperm. \emph{Epigenetics and Chromatin}, to appear.
+\item
+  Mach, N., Moroldo, M., \textbf{Rau, A.}, Lecardonnel, J., Le Moyec,
+  L., Robert, C., and Barrey, E. (2021) Understanding the holobiont:
+  crosstalk between gut microbiota and mitochondria during endurance.
+  \emph{Frontiers Molecular Biosciences}, 8:656204.
+  \url{https://dx.doi.org/10.3389/fmolb.2021.656204}
+\item
+  Devogel, N., Auer, P. L., Manansala, R., \textbf{Rau, A.}, and Wang,
+  T. (2020) A unified linear mixed model for familial relatedness and
+  population structure in genetic association studies. \emph{Genetic
+  Epidemiology}, 45(3): 305-315.
+  \url{https://dx.doi.org/10.1002/gepi.22371}
+\item
+  Cho, Y., \textbf{Rau, A.}, Reiner, A., Auer, P. L. (2020) Mendelian
+  randomization analysis with survival outcomes. \emph{Genetic
+  Epidemiology}, 45(1): 16-23.
+  \url{https://dx.doi.org/10.1002/gepi.22354}
+\item
+  Sellem, E., Marthey, S., \textbf{Rau, A.}, Jouneau, L., Bonnet, A.,
+  Perrier, J.-P., Fritz, S., Le Danvic, C. Boussaha, M., Kiefer, H.,
+  Jammes, H., Schiblier, L. (2020) A comprehensive overview of bull
+  sperm-borne small non-coding RNAs and their diversity in six breeds.
+  \emph{Epigenetics and Chromatin}, 13:19.
+  \url{https://dx.doi.org/10.1186/s13072-020-00340-0}
+\item
+  \textbf{Rau, A.}, Manansala, R., Flister, M. J., Rui, H., Jaffrézic,
+  F., Laloë, D., and Auer, P. L. (2020) Individualized multi-omic
+  pathway deviation scores using multiple factor analysis.
+  \emph{Biostatistics}, kxaa029. \url{https://dx.doi.org/10.1101/827022}
+\item
+  Godichon-Baggioni, A., Maugis-Rabusseau, C. and \textbf{Rau, A.}
+  (2020) Multi-view cluster aggregation and splitting, with an
+  application to multi-omic breast cancer data. \emph{Annals of Applied
+  Statistics}, 14:2, 752-767.
+\item
+  Jehl, F., Désert, C., Klopp, C., Brenet, M., \textbf{Rau, A.}, Leroux,
+  S., Boutin, M., Muret, K., Blum, Y., Esquerré, D., Gourichon, D.,
+  Burlot, T., Collin, A., Pitel, F., Benani, A., Zerjal, T., Lagarrigue,
+  S. (2019) Chicken adaptive response to low energy diet: main role of
+  the hypothalamic lipid metabolism revealed by a phenotypic and
+  multi-tissue transcriptomic approach. \emph{BMC Genomics}, 20.
+  \url{https://dx.doi.org/10.1186/s12864-019-6384-8}
+\item
+  Foissac, S., Djebali, S., Munyard, K., Villa-Vialaneix, N.,
+  \textbf{Rau, A.}, Muret, K., Esquerre, D., Zytnicki, M., Derrien, T.,
+  Bardou, P., Blanc, F., Cabau, C., Crisci, E., Dhorne-Pollet, S.,
+  Drouet, F., Gonzales, I., Goubil, A., Lacroix-Lamande, S., Laurent,
+  F., Marthey, S., Marti-Marimon, M., Momal-Leisenring, R., Mompart, F.,
+  Quere, P., Robelin, D., San Cristobal, M., Tosser-Klopp, G.,
+  Vincent-Naulleau, S., Fabre, S., Pinard-Van der Laan, M.-H., Klopp,
+  C., Tixier-Boichard, M., Acloque, H., Lagarrigue, S., Giuffra, E.
+  (2019) Multi-species annotation of transcriptome and chromatin
+  structure in domesticated animals. \emph{BMC Biology}, 18:48.
+\item
+  Dhara, S., \textbf{Rau, A.}, Flister, M., Recka, N., Laiosa, M., Auer,
+  P., and Udvadia, A. (2019) Cellular reprogramming for successful CNS
+  axon regeneration is driven by a temporally changing cast of
+  transcription factors. \emph{Scientific Reports}, 9:14198.
+  \url{https://dx.doi.org/10.1038/s41598-019-50485-6}
+\item
+  \textbf{Rau, A.}, Dhara, S., Udvadia, A., and Auer, P. (2019)
+  Regeneration Rosetta: An interactive web application to explore
+  regeneration-associated gene expression and chromatin accessibility.
+  \emph{G3: Genes\textbar Genomes\textbar Genetics}, 9(12): 3953-3959.
+  \url{https://dx.doi.org/10.1534/g3.119.400729}
+\item
+  Plasterer, C., Tsaih, S.-W., Lemke, A., Schilling, R., Dwinell, M.,
+  \textbf{Rau, A.}, Auer, P., Rui, H., Flister, M.J. (2019)
+  Identification of a rat mammary tumor risk locus that is syntenic with
+  the commonly amplified 8q12.1 and 8q22.1 regions in human breast
+  cancer patients. \emph{G3: Genes\textbar Genomes\textbar Genetics},
+  9(5): 1739-1743. \url{https://dx.doi.org/10.1534/g3.118.200873}
+\item
+  Ramayo-Caldas, Y., Zingaretti, L., Bernard, A., Estellé, J. Popova,
+  M., Pons, N., Bellot, P., Mach, N., \textbf{Rau, A.}, Roume, H.,
+  Perez-Encisco, M., Faverdin, P., Edouard, N., Dusko, S., Morgavi, D.P.
+  and Renand, G. (2019) Identification of rumen microbial biomarkers
+  linked to methane emission in Holstein dairy cows. \emph{Journal of
+  Animal Breeding and Genetics}, 137:49-59.
+  \url{https://dx.doi.org/10.1111/jbg.12427}
+\item
+  \textbf{Rau, A.}, Flister, M. J., Rui, H. and Livermore Auer, P.
+  (2019) Exploring drivers of gene expression in The Cancer Genome
+  Atlas. \emph{Bioinformatics}, 35(1): 62-68.
+  \url{https://dx.doi.org/10.1093/bioinformatics/bty551}
+\item
+  Godichon-Baggioni, A., Maugis-Rabusseau, C. and \textbf{Rau, A.}
+  (2018) Clustering transformed compositional data using K-means, with
+  applications in gene expression and bicycle sharing system data.
+  \emph{Journal of Applied Statistics}, 46(1):47-65.
+\item
+  \textbf{Rau, A.} and Maugis-Rabusseau, C. (2018) Transformation and
+  model choice for RNA-seq co-expression analysis. \emph{Briefings in
+  Bioinformatics}, bbw128. \url{https://dx.doi.org/10.1093/bib/bbw128}
+\item
+  Verrier, E., Genet, C., Laloë, D., Jaffrézic, J., \textbf{Rau, A.},
+  Esquerre, D., Dechamp, N., Ciobataru, C., Hervet, C., Krieg, F.,
+  Quillet, E., Boudinot, P. (2018) Genetic and transcriptomic analyses
+  provide new insights on the early antiviral response to VHSV in
+  resistant and susceptible rainbow trout. \emph{BMC Genomics}, 19:482.
+\item
+  Maroilley, T., Berri, M., Lemonnier, G., Esquerré, D., Chevaleyre, C.,
+  Mélo, S., Meurens, F., Coville, J.L., Leplat, J.J, \textbf{Rau, A.},
+  Bed'hom, B., Vincent-Naulleau, S., Mercat, M.J., Billon, Y., Lepage,
+  P., Rogel-Gaillard, C., and Estellé, J. (2018) Immunome differences
+  between porcine ileal and jejunal Peyer's patches revealed by global
+  transcriptome sequencing of gut-associated lymphoid tissues.
+  \emph{Scientific Reports}, 8:9077.
+\item
+  Mondet, F., \textbf{Rau, A.}, Klopp, C., Rohmer, M. Severac, D., Le
+  Conte, Y., and Alaux, C. (2018) Transcriptome profiling of the
+  honeybee parasite Varroa destructor provides new biological insights
+  into the mite adult life cycle. \emph{BMC Genomics}, 19:328.
+\item
+  He, B., Tjhung, K., Bennett, N., Chou, Y., \textbf{Rau, A.}, Huang,
+  J., and Derda, R. (2018) Compositional bias in naïve and
+  chemically-modified phage-displayed libraries uncovered by paired-end
+  deep sequencing. \emph{Scientific Reports}, 8:1214.
+\item
+  Monneret, G., Jaffrézic, F., \textbf{Rau, A.}, Zerjal, T. and Nuel, G.
+  (2017) Identification of marginal causal relationships in gene
+  networks from observational and interventional expression data.
+  \emph{PLoS One}, 12(3): e0171142.
+\item
+  Sauvage, C., \textbf{Rau, A.}, Aichholz, C., Chadoeuf, J., Sarah, G.,
+  Ruiz, M., Santoni, S., Causse, M., David, J., Glémin, S. (2017)
+  Domestication rewired gene expression and nucleotide diversity
+  patterns in tomato. \emph{The Plant Journal}, 91(4):631-645.
+\item
+  Rigaill, G., Balzergue, S., Brunaud, V., Blondet, E., \textbf{Rau,
+  A.}, Rogier, O., Caius, J., Maugis-Rabusseau, C., Soubigou-Taconnat,
+  L., Aubourg, S., Lurin, C., Martin-Magniette, M.-L., and Delannoy, E.
+  (2016) Synthetic datasets for the identification of key ingredients
+  for RNA-seq differential analysis. \emph{Briefings in Bioinformatics},
+  19(1):65-76. \url{https://dx.doi.org/10.1093/bib/bbw092}
+\item
+  Gallopin, M., Celeux, G., Jaffrézic, F., \textbf{Rau, A.} (2015) A
+  model selection criterion for model-based clustering of annotated gene
+  expression data. \emph{Statistical Applications in Genetics and
+  Molecular Biology}, 14(5): 413-428.
+\item
+  Monneret, G., Jaffrézic, F., \textbf{Rau, A.}, Nuel, G. (2015)
+  Estimation d'effets causaux dans les réseaux de régulation génique :
+  vers la grande dimension. \emph{Revue d'intelligence artificielle},
+  29(2): 205-227.
+\item
+  \textbf{Rau, A.}, Maugis-Rabusseau, C., Martin-Magniette, M.-L.,
+  Celeux, G. (2015) Co-expression analysis of high-throughput
+  transcriptome sequencing data with Poisson mixture models.
+  \emph{Bioinformatics}, 31(9): 1420-1427.
+\item
+  \textbf{Rau, A.}, Marot, G. and Jaffrézic, F. (2014) Differential
+  meta-analysis of RNA-seq data from multiple studies. \emph{BMC
+  Bioinformatics}, 16:31.
+\item
+  Endale Ahanda, M.-L., Zerjal, T., Dhorne-Pollet, S., \textbf{Rau, A.},
+  Cooksey, A., and Giuffra, E. (2014) Impact of the genetic background
+  on the composition of the chicken plasma miRNome in response to a
+  stress. \emph{PLoS One}, 9(12): e114598.
+\item
+  Nuel, G., \textbf{Rau, A.}, and Jaffrézic, F. (2013) Using pairwise
+  ordering preferences to estimate causal effects in gene expression
+  from a mixture of observational and intervention experiments..
+  \emph{Quality Technology and Quantitative Management}, 11(1):23-37.
+\item
+  \textbf{Rau, A.}, Jaffrézic, F., and Nuel, G. (2013) Joint estimation
+  of causal effects from observational and intervention gene expression
+  data. \emph{BMC Systems Biology}, 8:51.
+\item
+  Gallopin, M. \textbf{Rau, A.}, and Jaffrézic, F. (2013) A hierarchical
+  Poisson log-normal model for network inference from RNA sequencing
+  data. \emph{PLoS One}, 8(10): e77503.
+\item
+  \textbf{Rau, A.}, Gallopin, M., Celeux, G., and Jaffrézic, F. (2013)
+  Data-based filtering for replicated high-throughput transcriptome
+  sequencing experiments. \emph{Bioinformatics}, 29(17): 2146-2152.
+\item
+  Dillies, M.-A., \textbf{Rau, A.}, Aubert, J., Hennequet-Antier, C.,
+  Jeanmougin, M., Servant, N., Keime, C., Marot, G., Castel, D.,
+  Estelle, J., Guernec, G., Jagla, B., Jouneau, L., Laloë, D., Le Gall,
+  C., Schaëffer, B., Charif, D., Le Crom, S., Guedj, M., and Jaffrézic,
+  F. (2013) A comprehensive evaluation of normalization methods for
+  Illumina high-throughput RNA sequencing data analysis. \emph{Briefings
+  in Bioinformatics}, 14(6): 671-683.
+  \url{https://dx.doi.org/10.1093/bib/bbs046}
+\item
+  Brenault, P., Lefevre, L. \textbf{Rau, A.}, Laloë, D., Pisoni, G.,
+  Moroni, P., Bevilacquia, C. and Martin, P. (2013) Contribution of
+  mammary epithelial cells to the immune response during early stages of
+  a bacterial infection to Staphylococcus aureus. \emph{Veterinary
+  Research}, 45:16.
+\item
+  \textbf{Rau, A.}, Jaffrézic, F., Foulley, J.-L., and Doerge, R. W.
+  (2012) Reverse engineering gene regulatory networks using approximate
+  Bayesian computation. \emph{Statistics and Computing}, 22: 1257-1271.
+\item
+  \textbf{Rau, A.}, Jaffrézic, F., Foulley, J.-L., and Doerge, R. W.
+  (2010) An empirical Bayesian method for estimating biological networks
+  from temporal microarray data. \emph{Statistical Applications in
+  Genetics and Molecular Biology}, 9(1): 9.
+\item
+  Furth, A., Mandrekar, S., Tan, A. \textbf{Rau, A.}, Felten, S., Ames,
+  M. Adjei, A. Erlichman, C. and Reid, J. (2008) A limited sample model
+  to predict area under the drug concentration curve for
+  17-(allylamino)-17-demethoxygeldanamycin and its active metabolite
+  17-(amino)-17-demethoxygeldanomycin. \emph{Cancer Chemotherapy
+  Pharmacology}, 61(1): 39-45.
 \end{enumerate}
 
-\vspace{.5cm}
+\hypertarget{pre-prints-technical-reports-other-publications}{%
+\section{Pre-prints, technical reports, \& other
+publications}\label{pre-prints-technical-reports-other-publications}}
 
-
-%
-%
-%
-%\colorbox[gray]{0.8}{\makebox[\textwidth][l]{\Large{ \bf{Peer-reviewed articles}}}}\\
-%\vspace*{-.25cm}\begin{center} \textbf{Statistical Methods} \end{center}
-%\begin{enumerate}
-%...
-%\end{enumerate}
-%
-%
-%\vspace*{-.25cm}\begin{center} \textbf{Statistical Applications} \end{center}
-%\begin{enumerate}
-%...
-%\end{enumerate}
-
-
-\vspace{.5cm}
-%%
-\colorbox[gray]{0.8}{\makebox[\textwidth][l]{\Large{ \bf{Peer-reviewed conference proceedings}}}}\\
-\begin{enumerate} 
-\item \textbf{Rau, A.}, Jaffr{\'e}zic, F., Foulley, J.-L., and Doerge, R. W. (2010). Approximate Bayesian approaches for reverse engineering biological networks. {\it Proceedings of the Kansas State University Conference on Applied Statistics in Agriculture}. Manhattan, Kansas.
-\end{enumerate}
-\vspace{.5cm}
-%%
-%%
-
-\colorbox[gray]{0.8}{\makebox[\textwidth][l]{\Large{ \bf{Book chapters}}}}\\
-\begin{enumerate} 
-\item Martin-Magniette, M.-L., Maugis-Rabusseau, C., \textbf{Rau, A.} (2016) Clustering of co-expressed genes. In: Choix et agr{\'e}gation de mod{\`e}les: Journ{\'e}e d'Etudes Statistiques. Ed. F. Bertrand, J.-J. Droesbeke, G. Saporta, C. Thomas-Agnan.
-\end{enumerate}
-\vspace{.5cm}
-%%
-
-
-\colorbox[gray]{0.8}{\makebox[\textwidth][l]{\Large{ \bf{Pre-prints, technical reports, and submitted articles}}}}\\
 \begin{enumerate}
-\item Devogel, N., Auer, P. L., Manansala, R., \textbf{Rau, A.}, and Wang, T. (2020) A unified linear mixed model for familial relatedness and population structure in genetic association studies. Submitted.
-%
-\item Cho, Y., \textbf{Rau, A.}, Reiner, A., Auer, P. L. (2020) Mendelian randomization analysis with survival outcomes. Submitted.
-%
-\item Cazals, A., Estell{\'e}, J., Bruneau, N., Coville, J.-L., Menanteau, P., Rossignol, M.-N., Jardet, D., Bevilacqua, C., \textbf{Rau, A.}, Bed'Hom, B., Velge, P., and Calenge, F. (2020) Impact of host genetics on caecal microbiota composition and on Salmonella carriage in chicken. Submitted.
-%
-%\item Karlis, D., Mazo, G. and Rau, A. (2020) A randomized pairwise likelihood method with applications to multivariate count data. In preparation. TODO
-%
-%\item Revilla, M., \textbf{Rau, A.}, Crespo-Piazuelo, D., Ramayo-Caldas, Y., Estell{\'e}, J., Ballester, M., Folch, J. M. (2019) An integrative gene network analysis of the genetic determination of pig fatty acid composition based on adipose tissue RNA sequencing. Submitted. TODO
-%
-\item Nuel, G., \textbf{Rau, A.}, and Jaffr{\'e}zic, F. (2013). Joint likelihood calculation for intervention and observational data from a Gaussian Bayesian network. {\it arXiv preprint} arXiv$:$1305.0709.
-%
-\item \textbf{Rau, A.}, Celeux, G., Martin-Magniette, M.-L., and Maugis-Rabusseau, C. (2011). Clustering high-throughput sequencing data with Poisson mixture models. {\it Inria Research Report} 7786. 
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Rau, A.} (2021) Cooking up knowledge from big data using data
+  science. \emph{Frontiers in Young Minds} 9:632923.
+  \url{https://dx.doi.org/10.3389/frym.2021.632923}
+\item
+  Mollandin, F., \textbf{Rau, A.}, and Croiseau, P. (2021) An evaluation
+  of the interpretability and predictive performance of the BayesR model
+  for genomic prediction. Submitted.
+  \url{https://www.biorxiv.org/content/10.1101/2020.10.23.351700v1}
+\item
+  Mazo, G., Karlis, D., and \textbf{Rau, A.} (2021) A randomized
+  pairwise likelihood method for complex statistical inferences.
+  Submitted. \url{https://hal.archives-ouvertes.fr/hal-03126621}
+\item
+  Cazals, A., Estellé, J., Bruneau, N., Coville, J.-L., Menanteau, P.,
+  Rossignol, M.-N., Jardet, D., Bevilacqua, C., \textbf{Rau, A.},
+  Bed'Hom, B., Velge, P., and Calenge, F. (2020) Impact of host genetics
+  on caecal microbiota composition and on Salmonella carriage in
+  chicken. Submitted.
+  \url{https://www.researchsquare.com/article/rs-76645/v1}
+\item
+  Bruford, M., Leroy, G., Orozco-terWengel, P., \textbf{Rau, A.}, and
+  Simianer H. (2015) Section B: Molecular tools for exploring genetic
+  diversity. \emph{The Second Report on the State of the World's Animal
+  Genetic Resources for Food and Agriculture} FAO Commission on Genetic
+  Resources for Food and Agriculture.
+\item
+  Nuel, G., \textbf{Rau, A.}, and Jaffrézic, F. (2013) Joint likelihood
+  calculation for intervention and observational data from a Gaussian
+  Bayesian network. \emph{arXiv} 1305.0709.
+\item
+  \textbf{Rau, A.}, Celeux, G., Martin-Magniette, M.-L., and
+  Maugis-Rabusseau, C. (2011) Clustering high-throughput sequencing data
+  with Poisson mixture models. \emph{Inria Research Report} 7786.
+\item
+  \textbf{Rau, A.}, Jaffrézic, F., Foulley, J.-L., and Doerge, R. W.
+  (2010) Approximate Bayesian approaches for reverse engineering
+  biological networks. \emph{Proceedings of the Kansas State University
+  Conference on Applied Statistics in Agriculture} Manhattan, Kansas.
+\item
+  \textbf{Rau, A.} (2008) Success of Volunteer Statistical Consulting
+  Service Leads to Expanded Network. \emph{The Statistical Consultant}
+  25(1).
+\item
+  \textbf{Rau, A.} (2008) STATCOM Network Engages Growing Number of
+  Student Volunteers. \emph{Newsletter for the Section on Statistical
+  Education} 13(1).
+\item
+  \textbf{Rau, A.} (2008) Success of Statistical Service Leads to
+  Expanded Network. \emph{Amstat News} April 2008.
 \end{enumerate}
-\vspace{.5cm}
 
-\newpage
+\hypertarget{conference-presentations}{%
+\section{Conference presentations}\label{conference-presentations}}
 
-\colorbox[gray]{0.8}{\makebox[\textwidth][l]{\Large{ \bf{Other publications}}}}\\
 \begin{enumerate}
-%% Part 4 of The Second Report on the State of the World’s Animal Genetic Resources for Food and Agriculture.
-\item \textbf{Rau, A.} (2008). Success of Volunteer Statistical Consulting Service Leads to Expanded Network. {\it The Statistical Consultant}, 25(1).
-\item \textbf{Rau, A.} (2008). STATCOM Network Engages Growing Number of Student Volunteers. {\it Newsletter for the Section on Statistical Education}, 13(1).
-\item \textbf{Rau, A.} (2008). Success of Statistical Service Leads to Expanded Network. {\it Amstat News}, April 2008.
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Mixture models as a useful tool for identifying co-expressed
+  genes from RNA-seq data}\\
+  MiMo Workshop on mixture models @ virtual (2021-04-08)
+\item
+  \textbf{Invited keynote: Integrative and interactive analyses of
+  multi-omics data}\\
+  JOBIM 2020 @ virtual (2020-07-02)
+\item
+  \textbf{Invited talk: Individualized multi-omic pathway deviation
+  scores using multiple factor analysis}\\
+  EuroBioc 2019 @ Brussels, Belgium (2019-12-09)
+\item
+  \textbf{Poster: Integrative methods for multi-omic data reveal
+  multi-level gene and pathway regulation}\\
+  AgreenSkills+ annual meeting @ Brussels, Belgium (2019-04-12)
+\item
+  \textbf{coseq: An R/Bioconductor package for co-expression analyses of
+  RNA-seq data}\\
+  Plant and Animal Genomes (PAG) XXVI @ San Diego, California, USA
+  (2018-01-15)
+\item
+  \textbf{Invited talk: Model-based clustering to identify co-expressed
+  genes from high-throughput sequencing data}\\
+  Working Group on Model-Based Clustering @ Perugia, Italy (2017-07-20)
+\item
+  \textbf{Clustering transformed compositional data using coseq}\\
+  useR!2017 @ Brussels, Belgium (2017-07-05)
+\item
+  \textbf{Invited talk (FAANG workshop): An update on the FAANG pilot
+  project FR-AgENCODE}\\
+  Plant and Animal Genomes (PAG) XXVI @ San Diego, California, USA
+  (2017-01-12)
+\item
+  \textbf{Invited talk: Statistical tools to identify and visualize
+  co-expression clusers from RNA-seq data}\\
+  INRA RNA-seq day @ Avignon (2016-11-17)
+\item
+  \textbf{Identifying marginal causal relationships in gene networks
+  from observational and interventional expression data}\\
+  Joint Statistical Meetings of the American Statistical Association @
+  Chicago (2016-07-31)
+\item
+  \textbf{Invited talk: Experimental design in 'omics studies}\\
+  2nd International Symposium on Microgenomics, Technical Workshop @
+  Jouy-en-Josas (2016-05-31)
+\item
+  \textbf{HTSCluster: a mixture-based approach for co-expression
+  analyses of RNA-seq data}\\
+  15th Workshop: Statistical Methods for Post-Genomic Data @ Munich
+  (2015-02-13)
+\item
+  \textbf{HTSDiff: More sensitive differential analysis of RNA-seq
+  data}\\
+  Statistical analysis of RNA-seq data: Advances and challenges @ Paris
+  (2013-11-26)
+\item
+  \textbf{HTSFilter: Data-based filtering for replicated high-throughput
+  sequencing experiments}\\
+  Deuxièmes rencontres R @ Lyon (2013-06-28)
+\item
+  \textbf{Invited round table: Statistics applied to RNA-seq}\\
+  Journée de la transcriptome végétale de l'URGV-Genopole @ Evry
+  (2013-05-16)
+\item
+  \textbf{Joint estimation of causal effects from observational and
+  intervention gene expression data}\\
+  StatSeq meeting on genetical genomics @ Paris (2013-03-28)
+\item
+  \textbf{Invited talk: A comprehensive evaluation of normalization
+  methods for high-throughput RNA sequencing data analysis}\\
+  Journée APLIBIO (Alliance des PLates-formes Île-de-France de
+  BIOinformatique) @ Paris (2012-10-11)
+\item
+  \textbf{Clustering high-throughput sequencing data using Poisson
+  mixture models}\\
+  Joint Statistical Meetings of the American Statistical Association @
+  San Diego, California (2012-07-31)
+\item
+  \textbf{Clustering high-throughput sequencing data using Poisson
+  mixture models}\\
+  12th Workshop: Statistical Methods for Post-Genomic Data @ Lyon
+  (2012-01-26)
+\item
+  \textbf{Reverse Engineering Gene Networks Using Approximate Bayesian
+  Computation}\\
+  11th Workshop: Statistical Methods for Post-Genomic Data @ Paris
+  (2011-01-27)
+\item
+  \textbf{Approximate Bayesian methods for reverse engineering
+  biological networks}\\
+  Conference on Applied Statistics in Agriculture @ Manhattan, Kansas
+  (2010-04-26)
+\item
+  \textbf{Reverse-Engineering Gene Networks from Microarray Data with
+  Dynamic Bayesian Networks}\\
+  GENESYS Satellite Meeting at the European Conference on Complex
+  Systems @ Warwick, UK (2009-09-22)
+\item
+  \textbf{Using Dynamic Bayesian Networks with Hidden States to Infer
+  Gene Regulatory Networks}\\
+  Joint Statistical Meetings of the American Statistical Association @
+  Washington, DC (2009-08-05)
+\item
+  \textbf{Poster : Reverse-Engineering Genetic Regulatory Interactions
+  from Transcriptomic Data using Dynamic Bayesian Networks}\\
+  2nd Biennial Workshop on Statistical Bioinformatics and Stochastic
+  Systems Biology @ Newcastle, UK (2009-05-18)
+\item
+  \textbf{Poster: An Empirical Bayes Approach to Inferring Genetic
+  Regulatory Interactions with Dynamic Bayesian Networks}\\
+  Conference on Applied Statistics in Agriculture @ Manhattan, Kansas
+  (2009-04-19)
+\item
+  \textbf{Poster: An Empirical Bayes Approach to Inferring Genetic
+  Regulatory Interactions with Dynamic Bayesian Networks}\\
+  Gordon Conference on Quantitative Genetics and Genomics @ Galveston,
+  Texas (2009-02-22)
+\item
+  \textbf{Poster: Seven Years of StatCom at Purdue: Managing a Growing
+  Number of Student Volunteers}\\
+  Joint Statistical Meetings of the American Statistical Association @
+  Denver, Colorado (2008-08-04)
 \end{enumerate}
-\vspace{.5cm}
 
+\hypertarget{seminar-working-group-presentations}{%
+\section{Seminar \& working group
+presentations}\label{seminar-working-group-presentations}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Presentations and posters
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\colorbox[gray]{0.8}{\makebox[\textwidth][l]{\Large{ \bf{Conference presentations}}}}
-\vspace*{-0.2cm}
-\begin{longtable}{@{\hspace{3mm}}rl@{}}
-% July 2, 2020
-July 2020 & JOBIM 2020, virtual presentation \\
-& {\bf Invited keynote}: {\it Integrative and interactive analyses of multi-omics data}\\[1.4mm]
-% Dec 9, 2019
-Dec. 2019 & EuroBioc 2019, Brussels, Belgium \\
-		& {\bf Invited talk}: {\it Individualized multi-omic pathway deviation scores using multiple factor analysis}\\[1.4mm]	
-% April 12, 2019
-Apr. 2019 & AgreenSkills+ annual meeting, Brussels, Belgium \\
-		& Poster: {\it Integrative methods for multi-omic data reveal multi-level gene and pathway regulation}\\[1.4mm]	
-% January 15, 2018
-Jan. 2018 & Plant and Animal Genomes (PAG) XXVI, San Diego, California, USA \\
-		& {\it coseq: An R/Bioconductor package for co-expression analyses of RNA-seq data}\\[1.4mm]	
-% January 12, 2017
-Jan. 2018 & Plant and Animal Genomes (PAG) XXVI, San Diego, California, USA \\
-			& \textbf{Invited talk} (FAANG workshop): {\it An update on the FAANG pilot project
-FR-AgENCODE}\\[1.4mm]
-%July 20, 2017
-July 2017 	& Working Group on Model-Based Clustering, Perugia, Italy\\
-			& \textbf{Invited talk}: {\it Model-based clustering to identify co-expressed genes from high-throughput}\\
-			& {\it sequencing data}\\[1.4mm]
-%July 5, 2017
-July 2017 	& useR!2017, Brussels, Belgium\\
-			& {\it Clustering transformed compositional data using} \texttt{coseq}\\[1.4mm]
-%November 17, 2016
-Nov. 2016	& INRA RNA-seq day, Avignon \\
-			& \textbf{Invited talk}: {\it Statistical tools to identify and visualize co-expression clusers from RNA-seq data} \\[1.4mm]
-%July 31, 2016
-July 2016 	& Joint Statistical Meetings of the American Statistical Association, Chicago\\
-			& {\it Identifying marginal causal relationships in gene networks from observational and}\\
-			& {\it interventional expression data}\\[1.4mm]
-%May 31, 2016
-May 2016 	& 2nd International Symposium on Microgenomics, Technical Workshop, Jouy-en-Josas\\
-			& \textbf{Invited talk}: {\it Experimental design in 'omics studies}\\[1.4mm]
-%February 13, 2015
-Feb. 2015 	& 15th Workshop: Statistical Methods for Post-Genomic Data, Munich\\
-			& {\it HTSCluster: a mixture-based approach for co-expression analyses of RNA-seq data}\\[1.4mm]
-%November 26, 2013
-Nov. 2013 	& Statistical analysis of RNA-seq data: Advances and challenges, Paris\\
-			& {\it HTSDiff: More sensitive differential analysis of RNA-seq data}\\[1.4mm]
-%June 28, 2013
-June 2013 	& Deuxi{\`e}mes rencontres R, Lyon \\
-			& {\it HTSFilter: Data-based filtering for replicated high-throughput sequencing experiments}\\[1.4mm]
-%May 16, 2013
-May 2013	& Journ{\'e}e de la transcriptome v{\'e}g{\'e}tale de l'URGV-Genopole, Evry \\
-			& Invited round table: {\it Statistics applied to RNA-seq}\\[1.4mm]
-%March 28, 2013
-Mar. 2013		& StatSeq meeting on genetical genomics, Paris \\
-			& {\it Joint estimation of causal effects from observational and intervention gene expression data}\\[1.4mm]
-%October 11, 2012
-Oct. 2012	& Journ{\'e}e APLIBIO (Alliance des PLates-formes {\^I}le-de-France de BIOinformatique), Paris \\
-			& \textbf{Invited talk}: {\it A comprehensive evaluation of normalization methods for high-throughput} \\
-			& {\it RNA sequencing data analysis}\\[1.4mm]
-%July 31, 2012
-July 2012	& Joint Statistical Meetings of the American Statistical Association, San Diego, California\\
-			& {\it Clustering high-throughput sequencing data using Poisson mixture models}\\[1.4mm]
-%January 26, 2012 
-Jan. 2012	& 12th Workshop: Statistical Methods for Post-Genomic Data, Lyon\\
-			& {\it Clustering high-throughput sequencing data using Poisson mixture models}\\[1.4mm]
-%April 14, 2011 (Gilles was speaker)
-Apr. 2011	& StatSeq Workshop, Toulouse\\
-			& \textbf{Invited talk}: {\it Model-based cluster analysis for transcriptomic data} (G. Celeux, speaker)\\[1.4mm]
-%January 27, 2011
-Jan. 2011 	& 11th Workshop: Statistical Methods for Post-Genomic Data, Paris\\
-        	& {\it Reverse Engineering Gene Networks Using Approximate Bayesian Computation}\\[1.4mm]
-%April 26, 2010
-Apr. 2010	& Conference on Applied Statistics in Agriculture, Manhattan, Kansas\\
-			& {\it Approximate Bayesian methods for reverse engineering biological networks}\\[1.4mm] 
-			%September 22, 2009
-Sep. 2009 	& GENESYS Satellite Meeting at the European Conference on Complex Systems, \\
-			& Warwick, UK\\
-			& {\it Reverse-Engineering Gene Networks from Microarray Data with Dynamic Bayesian} \\
-			& {\it Networks}\\[1.4mm]
-%August 5, 2009
-Aug. 2009	& Joint Statistical Meetings of the American Statistical Association, Washington, DC\\
-			& {\it Using Dynamic Bayesian Networks with Hidden States to Infer Gene Regulatory} \\
-			& {\it Networks}\\[1.4mm]
-%May 18-19, 2009
-May 2009 	& 2nd Biennial Workshop on Statistical Bioinformatics and Stochastic Systems Biology,\\
-			& Newcastle, UK\\
-			& Poster : {\it Reverse-Engineering Genetic Regulatory Interactions from Transcriptomic} \\
-			& {\it Data using Dynamic Bayesian Networks}\\[1.4mm]
-%April 19-21, 2009
-Apr. 2009	& Conference on Applied Statistics in Agriculture, Manhattan, Kansas\\
-			& Poster : {\it An Empirical Bayes Approach to Inferring Genetic Regulatory Interactions}\\
-			& {\it with Dynamic Bayesian Networks}\\[1.4mm]
-%February 22-27, 2009
-Feb. 2009 	& Gordon Conference on Quantitative Genetics and Genomics, Galveston, Texas\\
-			& Poster : {\it An Empirical Bayes Approach to Inferring Genetic Regulatory Interactions}\\
-			& {\it with Dynamic Bayesian Networks}\\[1.4mm]
-%August 4, 2008
-Aug. 2008	& Joint Statistical Meetings of the American Statistical Association, Denver, Colorado\\
-			& Poster : {\it Seven Years of StatCom at Purdue: Managing a Growing Number of Student}\\
-			& {\it Volunteers}
-\end{longtable}
-\vspace*{-0.2cm}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Multi-omic integration for enhanced interpretability in
+  exploratory analyses}\\
+  Grenoble Laboratoire Jean Kuntzmann seminar @ virtual (2021-04-29)
+\item
+  \textbf{Happy 20th Birthday, R!}\\
+  INRAE GiBBS team meeting @ virtual (2020-05-18)
+\item
+  \textbf{Integrative methods for multi-omic data reveal multi-level
+  gene regulation}\\
+  AgroParisTech statistics seminar @ Paris, France (2020-01-20)
+\item
+  \textbf{Integrative multivariate methods for multi-omic data}\\
+  Lundi de GABI seminar @ Jouy en Josas, France (2020-01-13)
+\item
+  \textbf{Integrative methods for multi-omic data reveal multi-level
+  gene regulation}\\
+  INRA MaIAGE research seminar @ Jouy en Josas, France (2019-11-18)
+\item
+  \textbf{Integrative methods for multi-omic data reveal multi-level
+  gene regulation}\\
+  Journée régionale Genotoul @ Toulouse, France (2019-10-04)
+\item
+  \textbf{Integrative methods for multi-omic data reveal multi-level
+  gene regulation}\\
+  EpiFun workshop @ Orléans, France (2019-09-17)
+\item
+  \textbf{Exploring drivers of gene expression in The Cancer Genome
+  Atlas}\\
+  Division of Biostatistics Seminar at MCW @ Milwaukee, Wisconsin
+  (2018-12-04)
+\item
+  \textbf{Co-expression analyses of RNA-seq data in practice with the
+  R/Bioconductor package coseq}\\
+  MixStatSeq Workshop on Mixture Models: Theory and Application @ Paris
+  (2018-06-22)
+\item
+  \textbf{Exploring drivers of gene expression in The Cancer Genome
+  Atlas}\\
+  Research seminar series, Joseph J. Zilber School of Public Health @
+  Milwaukee, WI (2018-04-09)
+\item
+  \textbf{Exploring drivers of gene expression in The Cancer Genome
+  Atlas}\\
+  Physiology Department Seminar at MCW @ Milwaukee, WI (2018-03-28)
+\item
+  \textbf{Easy interactivity in R with (gg)plotly and Shiny}\\
+  INRA national bioinformatics workshop @ Dijon (2017-06-13)
+\item
+  \textbf{Challenges in data integration}\\
+  SAPS doctoral school: Experimental animal biology and predictive
+  modelisation @ Jouy en Josas, France (2017-03-17)
+\item
+  \textbf{Transformation, model choice, and visualization for RNA-seq
+  co-expression}\\
+  Seminar at the Human and Molecular Genetics Center, Milwaukee College
+  of Medicine @ Milwaukee, WI (2016-09-10)
+\item
+  \textbf{Transformation, model choice, and visualization for RNA-seq
+  co-expression}\\
+  Seminar at the Zilber School of Public Health @ Milwaukee, WI
+  (2016-09-09)
+\item
+  \textbf{Poisson mixtures with slope heuristics and visualization tools
+  for RNA-seq co-expression}\\
+  Groupe de travail de statistiques du LMRS @ Rouen (2016-05-12)
+\item
+  \textbf{From genotype to phenotype: what statistical methods to
+  integrate heterogeeous data?}\\
+  INRA national bioinformatics workshop @ Toulouse (2016-03-22)
+\item
+  \textbf{Integration of heterogeneous 'omics data}\\
+  SAPS doctoral school: Experimental animal biology and predictive
+  modelisation @ Jouy en Josas, France (2016-03-11)
+\item
+  \textbf{Poisson mixture models and visualization tools for RNA-seq
+  co-expression}\\
+  INRA NGS club @ Jouy en Josas, France (2016-03-08)
+\item
+  \textbf{Poisson mixtures with slope heuristics and visualization tools
+  for RNA-seq co-expression}\\
+  MAP5 seminar at Université Paris-Descartes @ Paris (2016-01-29)
+\item
+  \textbf{Model selection in mixture model based classification:
+  Applications in biostatistics}\\
+  4th Annual SFdS Young Statisticians and Probabilists Day @ Paris
+  (2016-01-22)
+\item
+  \textbf{Statistical analysis of microarray and RNA-seq data}\\
+  Seminar at Toulouse Mathematics Institute (IMT) @ Toulouse
+  (2015-11-17)
+\item
+  \textbf{Integrative clustering and classification in multiple
+  heterogeneous data}\\
+  Statomique seminar @ Paris (2015-11-09)
+\item
+  \textbf{RNA-seq co-expression analysis using mixture models}\\
+  NETBIO working group @ Paris (2015-09-29)
+\item
+  \textbf{HTSCluster: a mixture-based approach for co-expression
+  analyses of RNA-seq data}\\
+  Cirad seminar @ Montpellier (2015-09-25)
+\item
+  \textbf{Slope heuristics: the missing ingredient for identifying
+  co-expressed genes from RNA-seq data}\\
+  SELECT seminar @ Orsay (2014-10-16)
+\item
+  \textbf{HTSFilter: filtering replicated RNA-seq data using a
+  data-driven approach}\\
+  Statistics for Systems Biology (SSB) seminar @ Evry (2013-11-12)
+\item
+  \textbf{Reinforcing the biology-statistics feedback loop with tools
+  for genomic data analysis}\\
+  Seminar at INRA-GABI @ Jouy en Josas, France (2013-11-04)
+\item
+  \textbf{HTSAnalysis: a suite of R/Bioconductor packages for the
+  analysis of RNA-seq data}\\
+  Statistics for Integrative Biology (SIB) seminar @ Rennes (2013-10-29)
+\item
+  \textbf{Joint estimation of causal effects from observational and
+  intervention gene expression data}\\
+  NETBIO working group @ Paris (2013-09-20)
+\item
+  \textbf{Joint estimation of causal effects from observational and
+  intervention gene expression data}\\
+  Statistique et Santé working group @ Paris (2013-06-24)
+\item
+  \textbf{Joint estimation of causal effects from observational and
+  intervention gene expression data}\\
+  AppliBUGS Workshop @ Paris (2013-06-20)
+\item
+  \textbf{Joint estimation of causal effects from observational and
+  intervention gene expression data}\\
+  Statistics seminar @ Toulouse (2013-06-18)
+\item
+  \textbf{Joint estimation of causal effects from observational and
+  intervention gene expression data}\\
+  Statistics for Integrative Biology seminar @ Rennes (2013-02-22)
+\item
+  \textbf{Differential analysis of RNA-seq data by unsupervised
+  classification}\\
+  Assemblée générale PEPI IBIS @ Toulouse (2012-12-07)
+\item
+  \textbf{Independent data-based filtering for replicated
+  high-throughput sequencing experiments}\\
+  Statomique seminar @ Lyon (2012-11-27)
+\item
+  \textbf{Clustering high-throughput sequencing data using Poisson
+  mixture models}\\
+  LGC and SAGA seminar at INRA @ Toulouse (2012-06-25)
+\item
+  \textbf{Clustering high-throughput sequencing data using Poisson
+  mixture models}\\
+  SSB working group seminar @ Jouy en Josas, France (2012-06-19)
+\item
+  \textbf{Inferring gene regulatory networks with hidden variables using
+  state space models}\\
+  MIA Biological network inference methodological working group meeting
+  @ Paris (2012-02-09)
+\item
+  \textbf{Exploring the identifiability of gene regulatory networks with
+  approximate Bayesian computation}\\
+  AppliBugs Workshop @ Paris (2011-12-09)
+\item
+  \textbf{Reverse Engineering Gene Networks Using Approximate Bayesian
+  Computation (ABC)}\\
+  Seminar at the Institut de Recherche Mathématique Avancée @ Strasbourg
+  (2011-05-24)
+\item
+  \textbf{Reverse Engineering Gene Networks: A Statistician's
+  Perspective}\\
+  Seminar at the Unité de Recherche en Génomique Végétale @ Evry
+  (2011-04-07)
+\item
+  \textbf{Reverse Engineering Gene Networks Using Approximate Bayesian
+  Computation (ABC)}\\
+  Seminar at the Institut de Mathématiques de Luminy @ Marseille
+  (2011-04-04)
+\item
+  \textbf{Reverse Engineering Gene Networks Using Approximate Bayesian
+  Computation (ABC)}\\
+  Seminar at the Laboratoire Statistique et Génome @ Evry (2011-03-22)
+\item
+  \textbf{Reverse Engineering Gene Networks Using Approximate Bayesian
+  Computation (ABC)}\\
+  Seminar at the équipe Génétique et Génomique Statistique @ Le Kremlin
+  Bicêtre (2011-03-02)
+\item
+  \textbf{Reverse Engineering Gene Networks Using Approximate Bayesian
+  Computation (ABC)}\\
+  Rencontre de statistique autour des modèles hiérarchiques @ Strasbourg
+  (2011-01-14)
+\item
+  \textbf{Reverse Engineering Gene Networks Using Approximate Bayesian
+  Computation (ABC)}\\
+  INA P-G, Paris Descartes, and SELECT working group @ Paris
+  (2010-10-18)
+\item
+  \textbf{Approximate Bayesian methods for reverse engineering
+  biological networks}\\
+  Bioinformatics seminar at Purdue University @ West Lafayette, Indiana
+  (2010-04-13)
+\item
+  \textbf{Inférence sur les réseaux génomiques par des modèles
+  espace-état}\\
+  Seminar at the AgroParisTech @ Paris (2009-06-22)
+\item
+  \textbf{Inférence sur les réseaux génomiques par des modèles
+  espace-état}\\
+  Seminar at the UMR GABI-INRA @ Jouy-en-Josas (2009-06-15)
+\item
+  \textbf{Reverse Engineering Gene Regulatory Networks}\\
+  Ph.D.~student seminar, INRA Département de Génétique Animale @
+  Jouy-en-Josas (2009-03-23)
+\item
+  \textbf{Poster: Inferring Gene Regulatory Network through Linear
+  Feedback State Space Models}\\
+  Ph.D.~student seminar, INRA Département de Génétique Animale @
+  Toulouse (2008-03-20)
+\end{enumerate}
 
-\colorbox[gray]{0.8}{\makebox[1.05\textwidth][l]{\Large{ \bf{Seminar and working group presentations}}}}
-\vspace*{-0.2cm}
-\begin{longtable}{@{\hspace{3mm}}rl@{}}
-% Jan. 20, 2020
-Jan. 2020 & AgroParisTech statistics seminar, Paris, France \\
-	& {\it Integrative methods for multi-omic data reveal multi-level gene regulation}\\[1.4mm]
-% Nov 18, 2019
-Nov. 2019 & INRA MaIAGE research seminar, Jouy en Josas, France \\
-		& {\it Integrative methods for multi-omic data reveal multi-level gene regulation}\\[1.4mm]
-% Oct 4, 2019
-Oct. 2019 & Journ{\'e}e r{\'e}gionale Genotoul, Toulouse, France \\
-		& {\i Integrative methods for multi-omic data reveal multi-level gene regulation}\\[1.4mm]
-% Sep 17, 2019
-Sep. 2019 & EpiFun workshop, Orl{\'e}ans, France \\
-		& {\i Integrative methods for multi-omic data reveal multi-level gene regulation}\\[1.4mm]
-% Dec 4, 2018
-Dec. 2018 & Division of Biostatistics Seminar at MCW, Milwaukee, Wisconsin \\
-		& {\it Exploring drivers of gene expression in The Cancer Genome Atlas}\\[1.4mm]
-% June 22, 2018
-June 2018 & MixStatSeq Workshop on Mixture Models: Theory and Application, Paris \\
-		& {\it Co-expression analyses of RNA-seq data in practice with the R/Bioconductor package coseq} \\[1.4mm]
-% April 9, 2018
-Apr. 2018 & Research seminar series, Joseph J. Zilber School of Public Health, Milwaukee, WI \\
-		& {\it Exploring drivers of gene expression in The Cancer Genome Atlas}\\[1.4mm]
-% March 28, 2018
-Mar. 2018 & Physiology Department Seminar at MCW, Milwaukee, Wisconsin \\
-		& {\it Exploring drivers of gene expression in The Cancer Genome Atlas}\\[1.4mm]
-%June 13, 2017
-June 2017	& INRA national bioinformatics workshop, Dijon \\
-			& {\it Easy interactivity in R with (gg)plotly and Shiny}\\[1.4mm]
-%March 17, 2017
-Mar. 2017 	& SAPS doctoral school: Experimental animal biology and predictive modelisation \\
-			& {\it Challenges in data integration}\\[1.4mm]
-%September 10, 2016
-Sep 2016	& Seminar at the Human and Molecular Genetics Center, Milwaukee College of Medicine  \\
-			& {\it Transformation, model choice, and visualization for RNA-seq co-expression} \\[1.4mm]
-%September 9, 2016
-Sep 2016	& Seminar at the Zilber School of Public Health, Milwaukee, Wisconsin \\
-			& {\it Transformation, model choice, and visualization for RNA-seq co-expression} \\[1.4mm]	
-%May 12, 2016
-May 2016 	& Groupe de travail de statistiques du LMRS de Rouen \\
-			& {\it Poisson mixtures with slope heuristics and visualization tools for RNA-seq co-expression}\\[1.4mm]
-%March 22, 2016
-Mar. 2016	& INRA national bioinformatics workshop, Toulouse \\
-			& {\it From genotype to phenotype: what statistical methods to integrate heterogeeous data?}\\[1.4mm]
-%March 11, 2016
-Mar. 2016 	& SAPS doctoral school: Experimental animal biology and predictive modelisation \\
-			& {\it Integration of heterogeneous 'omics data}\\[1.4mm]
-%March 8, 2016
-Mar. 2016	& INRA NGS club, Jouy-en-Josas \\
-			& {\it Poisson mixture models and visualization tools for RNA-seq co-expression}\\[1.4mm]
-%January 29, 2016
-Jan. 2016	& MAP5 seminar at Universit{\'e} Paris-Descartes \\
-			& {\it Poisson mixtures with slope heuristics and visualization tools for RNA-seq co-expression}\\[1.4mm]
-%January 22, 2016
-Jan. 2016 	& 4th Annual SFdS Young Statisticians and Probabilists Day, Paris \\
-			& {\it Model selection in mixture model based classification: Applications in biostatistics}\\[1.4mm]
-%November 17, 2015
-Nov. 2015	& Seminar at Toulouse Mathematics Institute (IMT), Toulouse \\
-			& {\it Statistical analysis of microarray and RNA-seq data}\\[1.4mm]
-%November 9, 2015
-Nov. 2015 	& Statomique seminar, Paris \\
-			& {\it Integrative clustering and classification in multiple 						heterogeneous data}\\[1.4mm]
-%September 29, 2015
-Sep. 2015 	& NETBIO working group, Paris \\
-			& {\it RNA-seq co-expression analysis using mixture models}\\[1.4mm]
-%September 25, 2015
-Sep. 2015	& Cirad seminar, Montpellier \\
-			& {\it HTSCluster: a mixture-based approach for co-expression 		
-			analyses of RNA-seq data}\\[1.4mm]
-%October 16, 2014
-Oct. 2014 	& SELECT seminar, Orsay\\
-			& {\it Slope heuristics: the missing ingredient for identifying co-expressed genes from} \\
-			& {\it RNA-seq data}\\[1.4mm]
-% November 12, 2013
-Nov. 2013 	& Statistics for Systems Biology (SSB) seminar, Evry \\
-			& {\it HTSFilter: filtering replicated RNA-seq data using a data-driven approach}\\[1.4mm]
-% November 4, 2013
-Nov. 2013 	& Seminar at INRA-GABI, Jouy-en-Josas \\
-			& {\it Reinforcing the biology-statistics feedback loop with tools for genomic data analysis}\\[1.4mm]
-% October 29, 2013
-Oct. 2013 	& Statistics for Integrative Biology (SIB) seminar, Rennes \\
-			& {\it HTSAnalysis: a suite of R/Bioconductor packages for the analysis of RNA-seq data}\\[1.4mm]
-% September 20, 2013
-Sep. 2013 	& NETBIO working group, Paris \\
-			& {\it Joint estimation of causal effects from observational and intervention gene expression data}\\[1.4mm]
-% June 24, 2013
-June 2013 	& Statistique et Sant{\'e} working group, Paris \\
-			& {\it Joint estimation of causal effects from observational and intervention gene expression data}\\[1.4mm]
-% June 20, 2013
-June 2013 	& AppliBUGS Workshop, Paris \\
-			& {\it Joint estimation of causal effects from observational and intervention gene expression data}\\[1.4mm]
-%June 18, 2013
-June 2013	& Statistics seminar, Toulouse \\
-			& {\it Joint estimation of causal effects from observational and intervention gene expression data}\\[1.4mm]
-%February 22, 2013
-Feb. 2013		& Statistics for Integrative Biology seminar, Rennes \\
-			& {\it Joint estimation of causal effects from observational and intervention gene expression data}\\[1.4mm]
-%December 7, 2012
-Dec. 2012		& Assembl{\'e}e g{\'e}n{\'e}rale PEPI IBIS, Toulouse \\
-			& {\it Differential analysis of RNA-seq data by unsupervised classification}\\[1.4mm]
-%November 27, 2012
-Nov. 2012		 & Statomique seminar, Lyon \\
-			& {\it Independent data-based filtering for replicated high-throughput sequencing experiments}\\[1.4mm]
-%June 25, 2012
-June 2012	& LGC and SAGA seminar at INRA, Toulouse \\
-			& {\it Clustering high-throughput sequencing data using Poisson mixture models}\\[1.4mm]
-%June 19, 2012
-June 2012	& SSB working group seminar, Jouy en Josas \\
-			& {\it Clustering high-throughput sequencing data using Poisson mixture models}\\[1.4mm]
-%February 9, 2012
-Feb. 2012	& MIA ``Biological network inference'' methodological working group meeting, Paris\\
-			& {\it Inferring gene regulatory networks with hidden variables using state space models}\\[1.4mm]
-%December 9, 2011
-Dec. 2011	& AppliBugs Workshop, Paris\\
-			& {\it Exploring the identifiability of gene regulatory networks with approximate Bayesian}\\
-			& {\it computation}\\[1.4mm]
-%May 24, 2011
-May 2011	& Seminar at the Institut de Recherche Math{\'e}matique Avanc{\'e}e, Strasbourg \\
-			& {\it Reverse Engineering Gene Networks Using Approximate Bayesian Computation (ABC)} \\[1.4mm]
-%April 7, 2011
-Apr. 2011 	& Seminar at the Unit{\'e} de Recherche en G{\'e}nomique V{\'e}g{\'e}tale, {\'Evry} \\
-			& {\it Reverse Engineering Gene Networks: A Statistician's Perspective} \\[1.4mm]
-%April 4, 2011
-Apr. 2011	& Seminar at the Institut de Math{\'e}matiques de Luminy, Marseille \\
-			& {\it Reverse Engineering Gene Networks Using Approximate Bayesian Computation (ABC)} \\[1.4mm]
-%March 22, 2011			
-Mar. 2011 	& Seminar at the Laboratoire Statistique et G{\'e}nome, {\'Evry} \\
-			& {\it Reverse Engineering Gene Networks Using Approximate Bayesian Computation (ABC)} \\[1.4mm]
-%March 2, 2011			
-Mar. 2011	& Seminar at the {\'e}quipe G{\'e}n{\'e}tique et G{\'e}nomique Statistique, Le Kremlin Bic{\^e}tre \\
-			& {\it Reverse Engineering Gene Networks Using Approximate Bayesian Computation (ABC)} \\[1.4mm]
-%January 14, 2011
-Jan. 2011   & Rencontre de statistique autour des mod{\`e}les hi{\'e}rarchiques, Strasbourg \\
-			& {\it Reverse Engineering Gene Networks Using Approximate Bayesian Computation (ABC)} \\[1.4mm]
-%October 18, 2010
-Oct. 2010 	& INA P-G, Paris Descartes, and SELECT working group, Paris \\
-			& {\it Reverse Engineering Gene Networks Using Approximate Bayesian Computation (ABC)}\\[1.4mm]
-%April 13, 2010
-Apr. 2010 	& Bioinformatics seminar at Purdue University, West Lafayette, Indiana \\
-			& {\it Approximate Bayesian methods for reverse engineering biological networks}\\[1.4mm]
-%June 22, 2009
-June 2009	& Seminar at the AgroParisTech, Paris \\
-			& {\it Inf{\'e}rence sur les r{\'e}seaux g{\'e}nomiques par des mod{\`e}les espace-{\'e}tat}\\[1.4mm]	
-%June 15, 2009
-June 2009	& Seminar at the UMR GABI-INRA, Jouy-en-Josas	 \\
-			& {\it Inf{\'e}rence sur les r{\'e}seaux g{\'e}nomiques par des mod{\`e}les espace-{\'e}tat}\\[1.4mm]
-%March 23-24, 2009		
-Mar. 2009 	& Ph.D. student seminar, INRA D{\'e}partement de G{\'e}n{\'e}tique Animale, Jouy-en-Josas\\
-			& {\it Reverse Engineering Gene Regulatory Networks} \\[1.4mm]
-%March 20-21, 2008
-Mar. 2008 	& Ph.D. student seminar, INRA D{\'e}partement de G{\'e}n{\'e}tique Animale, Toulouse\\
-			& Poster : {\it Inferring Gene Regulatory Network through Linear Feedback State Space Models}\\				
-\end{longtable}
+\hypertarget{participation-in-working-groups}{%
+\section{Participation in working
+groups}\label{participation-in-working-groups}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Working groups
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+\tightlist
+\item
+  Statomique (2009-present)
+\item
+  Netbio (2014-present)
+\end{itemize}
 
-\colorbox[gray]{0.8}{\makebox[\textwidth][l]{ \Large{\bf{
-Participation in working groups and seminars}}}}
-\begin{table}[H]
-\begin{tabular}{@{\hspace{3mm}}l@{}}
-%$\bullet$ SSB working group (bi-monthly, 2011-present)\\[1.5mm]
-$\bullet$ Statomique working group (quarterly, 2009-present)\\[1.5mm]
-%$\bullet$ SELECT group seminar (bi-monthly, 2010-2011)\\[1.5mm]
-\end{tabular}
-\end{table}
+\hypertarget{software}{%
+\section{Software}\label{software}}
 
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{padma}: Pathway deviation scores using multiple factor
+  analysis, available at
+  \href{https://bioconductor.org/packages/padma/}{BioC}\\
+\item
+  \textbf{Invest Astuces}: An R/Shiny interactive web application for
+  financial and real estate loan simulations, available as a
+  \href{https://investastuces.com/simulateurs/}{Shiny web app}\\
+\item
+  \textbf{Regeneration Rosetta}: An R/Shiny interactive web application
+  to explore regeneration-associated gene expression and chromatin
+  accessibility, available as a
+  \href{http://ls-shiny-prod.uwm.edu/rosetta/}{Shiny web app}\\
+\item
+  \textbf{maskmeans}: Multi-view aggregation/splitting K-means
+  clustering algorithm, available at
+  \href{https://github.com/andreamrau/maskmeans}{GitHub}\\
+\item
+  \textbf{Edge in TCGA}: An R/Shiny interactive web application for the
+  exploration of drivers of gene expression in The Cancer Genome Atlas,
+  available as a \href{http://ls-shiny-prod.uwm.edu/edge_in_tcga/}{Shiny
+  web app}\\
+\item
+  \textbf{coseq}: Co-expression analysis of sequencing data, available
+  at \href{https://bioconductor.org/packages/coseq/}{BioC}\\
+\item
+  \textbf{ICAL}: Model selection for model based clustering of annotated
+  data, available at \href{https://github.com/Gallopin/ICAL}{GitHub}\\
+\item
+  \textbf{metaRNASeq}: Meta-analysis of RNA-seq data, available at
+  \href{https://cran.r-project.org/web/packages/metaRNASeq/index.html}{CRAN}\\
+\item
+  \textbf{HTSDiff}: Differential analysis for RNA-seq data, available at
+  \href{https://r-forge.r-project.org/R/?group_id=1504}{R-Forge}\\
+\item
+  \textbf{HTSFilter}: Filter for replicated high-throughput sequencing
+  data, available at
+  \href{http://www.bioconductor.org/packages/release/bioc/html/HTSFilter.html}{BioC}\\
+\item
+  \textbf{HTSCluster}: Clustering high-throughput sequencing data with
+  Poisson mixture models, available at
+  \href{http://cran.r-project.org/web/packages/HTSCluster}{CRAN}\\
+\item
+  \textbf{ebdbNet}: Empirical Bayes estimation for dynamic Bayesian
+  networks, available at
+  \href{http://cran.r-project.org/web/packages/ebdbNet}{CRAN}
+\end{enumerate}
 
-\colorbox[gray]{0.8}{\makebox[\textwidth][l]{\Large{\bf{Software and R packages}}}}
-%\begin{table}[H]
-%\begin{tabular}{@{\hspace{3mm}}l@{}}
-\begin{longtable}{@{\hspace{3mm}}l@{}}
-$\bullet$ \texttt{padma}: Pathway deviation scores using multiple factor analysis\\
-\hspace{.3cm}Available on Bioconductor at \texttt{https://www.bioconductor.org/packages/padma}.\\[1.5mm]
- $\bullet$ \texttt{Regeneration Rosetta}: An R/Shiny interactive web application to explore regeneration-\\
-associated gene expression and chromatin accessibility\\
-\hspace{.3cm}Available at \texttt{http://ls-shiny-prod.uwm.edu/rosetta}.\\[1.5mm]
-$\bullet$ \texttt{maskmeans}:  Multi-view aggregation/splitting K-means clustering algorithm\\
-\hspace{.3cm}Available on GitHub at \texttt{https://github.com/andreamrau/maskmeans}.\\[1.5mm]
-$\bullet$ \texttt{EDGE in TCGA}: An R/Shiny interactive web application for the exploration of drivers of \\
-gene expression in The Cancer Genome Atlas\\
-\hspace{.3cm}Available at \texttt{http://ls-shiny-prod.uwm.edu/edge\_in\_tcga/}.\\[1.5mm]
-$\bullet$ \texttt{coseq}: Co-expression analysis of sequencing data\\
-\hspace{.3cm}Available on Bioconductor at \texttt{https://bioconductor.org/packages/coseq/}.\\[1.5mm]
-$\bullet$ \texttt{ICAL}: Model selection for model based clustering of annotated data\\
-\hspace{.3cm}Available on Github at \texttt{https://github.com/Gallopin/ICAL}.\\[1.5mm]
-$\bullet$ \texttt{metaRNASeq}: Meta-analysis of RNA-seq data\\
-\hspace{.3cm}Available on CRAN at \texttt{http://cran.r-project.org/web/packages/metaRNASeq}.\\[1.5mm]
-$\bullet$ \texttt{HTSFilter}: Filter for replicated high-throughput sequencing data\\
-\hspace{.3cm}Available on Bioconductor at \texttt{www.bioconductor.org/packages/HTSFilter/}.\\[1.5mm]
-$\bullet$ \texttt{HTSCluster}:  Clustering high throughput sequencing data\\
-\hspace{.3cm}Available on CRAN at \texttt{http://cran.r-project.org/web/packages/HTSCluster}.\\[1.5mm]
-$\bullet$ \texttt{ebdbNet}: Empirical Bayes estimation for Dynamic Bayesian Networks\\
-\hspace{.3cm}Available on CRAN at \texttt{http://cran.r-project.org/web/packages/ebdbNet}.\\[1.5mm]
-%\end{tabular}
-%\end{table}
-\end{longtable}
+\hypertarget{administrative-activities}{%
+\section{Administrative activities}\label{administrative-activities}}
 
+\begin{cventries}
+    \cventry{Annals of Applied Statistics, Bioinformatics, BMC Bioinformatics, BMC Genomics, BMC Medical Genetics, Briefings in Bioinformatics, Computational and Structural Biotechnology Journal, F1000 Research, G3, Genome Biology, GigaScience, IEEE Proceedings, Journal of Computational Biology, JRSS-C, Molecular Genetics and Genomics, Nature Computational Science, Nucleic Acids Research, Revue d’Intelligence Artificielle, RNA, Statistical Applications in Genetics and Molecular Biology, The Plant Journal}{Reviewer}{2010-present}{}{}\vspace{-4.0mm}
+    \cventry{INRAE Animal Genetics Department Conseil Scientifique}{Elected member (substitute)}{2021-2024}{}{}\vspace{-4.0mm}
+    \cventry{INRAE Commission scientifique spécialisée (CSS) Mathématiques, Informatique, Scienes et Technologies du numérique, Intelligence artificielle et Robotoqiue (MISTI}{Appointed member}{2021-2024}{}{}\vspace{-4.0mm}
+    \cventry{Evaluation committee for Assistant Professor position at Université Le Mans}{Member}{2021}{}{}\vspace{-4.0mm}
+    \cventry{Evaluation committee for Researh Scientist (chargé de recherche) position at INRAE}{Member}{2021}{}{}\vspace{-4.0mm}
+    \cventry{BMC Genomics}{Associate Editor}{2021}{}{}\vspace{-4.0mm}
+    \cventry{Editorial Board of Statistical Genetics and Methodology, Frontiers in Genetics}{Review Editor}{2021}{}{}\vspace{-4.0mm}
+    \cventry{Université Paris-Saclay, Women and Science Mentoring Program}{Mentor}{2021}{}{}\vspace{-4.0mm}
+    \cventry{ANR MRSEI grant call}{Reviewer}{2020}{}{}\vspace{-4.0mm}
+    \cventry{UseR!2019 international conference}{Scientific committee member}{2019}{}{}\vspace{-4.0mm}
+    \cventry{University of Wisconsin-Milwaukee Research Growth Initiative grant call}{Reviewer}{2017}{}{}\vspace{-4.0mm}
+    \cventry{INRA Selgen Metaprogramme grant call}{Reviewer}{2017}{}{}\vspace{-4.0mm}
+    \cventry{Nantes Excellence Trajectory (NExT) Health and Engineering initiative "Internal interdisciplinary project" call}{Reviewer}{2017}{}{}\vspace{-4.0mm}
+    \cventry{Evaluation committee for Assistant Professor position at Université Rennes I, UMR Inserm IRSET 1085}{Member}{2016}{}{}\vspace{-4.0mm}
+    \cventry{Evaluation committee for Assistant Professor position at Université Rennes I, IGDR (Institute of Genetics and Developmental biology of Rennes), CNRS UMR 6290}{Member}{2016}{}{}\vspace{-4.0mm}
+    \cventry{Rencontres R national conference}{Scientific committee president}{2016}{}{}\vspace{-4.0mm}
+    \cventry{Conseil Scientifique des Utilisateurs (CSU) of the MIGALE Bioinformatics platform (INRA, Jouy en Josas)}{Member}{2015-2019}{}{}\vspace{-4.0mm}
+    \cventry{Committee on Student Pro Bono Statistics of the ASA}{Chair}{2010}{}{}\vspace{-4.0mm}
+    \cventry{Committee on Student Pro Bono Statistics of the American Statistical Association (ASA)}{Member}{2009-2010}{}{}\vspace{-4.0mm}
+    \cventry{Invited round table (The Pros of Pro Bono Statistics) at the ASA Joint Statistical Meetings (Washington, DC, USA}{Organizer}{2009}{}{}\vspace{-4.0mm}
+    \cventry{Statistics in the Community (StatCom) at Purdue University: StatCom is a volunteer organization of graduate students that provides free professional statistical consulting services to government and nonprofit groups}{Member}{2006-2010}{}{}\vspace{-4.0mm}
+\end{cventries}
 
+\hypertarget{funding}{%
+\section{Funding}\label{funding}}
 
+\begin{cventries}
+    \cventry{The regulatory genome of swine and chicken: functional annotation during development, H2020 RIA grant}{GENE-SWitCH}{2019-2023}{}{\begin{cvitems}
+\item PI: Elisabetta Giuffra and Herve Acloque; Role: Co-investigator and task leader
+\end{cvitems}}
+    \cventry{Towards a better understanding of ruminant milk lipolysis through an integrative biology approach in milk and mammary epithelial cells, French National Research Agency (ANR) grant}{LIPOMEC}{2018-2022}{}{\begin{cvitems}
+\item PI: Christelle Cebo; Role: Co-investigator
+\end{cvitems}}
+    \cventry{Systems biology for genomic selection, INRA Selgen metaprogram grant}{EpiFun}{2018-2020}{}{\begin{cvitems}
+\item PI: Nathalie Vialaneix and Thomas Faraut; Role: Co-investigator
+\end{cvitems}}
+    \cventry{Integrative analysis of multi-omics data for improved detection power of functional genetic variants, AgreenSkills+ mobility grant (University of Wisconsin-Milwaukee)}{AgreenSkills+}{2017-2019}{}{\begin{cvitems}
+\item PI: Andrea Rau
+\end{cvitems}}
+    \cventry{Relationships between digestive microbiota and feed efficiency in cattle, AP-2016-007}{Microficient}{2016-2019}{}{\begin{cvitems}
+\item PI: Yuliaxis Ramayo and Gilles Renand; Role: Co-investigator
+\end{cvitems}}
+    \cventry{Characterization and management of health and environmental risks linked to the development of ciguatera in phytobenthos in French Polynesia, French Polynesia Territory grant}{CARISTO-PF}{2016-2019}{}{\begin{cvitems}
+\item PI: Gregory Nuel; Role: Co-investigator
+\end{cvitems}}
+    \cventry{Genetic and microbiotal control of Salmonella carriage in chicken and mice, Institut Carnot Pasteur Maladies Infectieuses (PMI) / Institut Carnot Santé Animale (ICSA) grant}{SalmoCar}{2015-2017}{}{\begin{cvitems}
+\item PI: Xavier Montagutelli; Role: Co-investigator
+\end{cvitems}}
+    \cventry{Using COmbinatorial gene Silencing \& Inactivation to infer gene NETworks, INRA Animal Genetics Department internal grant}{COSI-net}{2015-2016}{}{\begin{cvitems}
+\item PI: Andrea Rau
+\end{cvitems}}
+    \cventry{Mixture-based procedures for statistical analysis of RNA-seq data, French National Research Agency (ANR) grant (ANR-13-JS01-0001-01)}{MixStatSeq}{2014-2018}{}{\begin{cvitems}
+\item PI: Cathy Maugis-Rabusseau; Role: Co-investigator
+\end{cvitems}}
+    \cventry{Causal network inference, INRA Animal Genetics Department internal grant}{Causality}{2014}{}{\begin{cvitems}
+\item PI: Florence Jaffrézic; Role: Co-investigator
+\end{cvitems}}
+\end{cventries}
 
-\colorbox[gray]{0.8}{\makebox[\textwidth][l]{\Large{\bf{ Administrative activities and service}}}}
-\begin{longtable}{@{\hspace{3mm}}p{.75in}l@{}}
-Reviewer			& \textit{Revue d'Intelligence Artificielle}, \textit{IEEE Proceedings}, \textit{Statistical Applications in} \\
-					& \textit{Genetics and Molecular Biology},  \textit{BMC Bioinformatics}, \textit{BMC Genomics}, \textit{RNA}, \\
-					& \textit{Nucleic Acids Research}, \textit{Molecular Genetics and Genomics}, \textit{F1000 Research},\\
-					& \textit{Bioinformatics}, \textit{Computational and Structural Biotechnology Journal},\\
-					& \textit{GigaScience}, \textit{BMC Medical Genetics}, \textit{Briefings in Bioinformatics}, \textit{Annals of Applied}\\
-					& \textit{ Statistics}, \textit{Genome Biology}, \textit{The Plant Journal}, \textit{Nature Computational Science}\\[2.5mm]
-%2020 Conseil scientifique du département génétique animale (2020) TODO
-%2020 CSS MISTI (2020) TODO
-\texttt{2019}		& Scientific committee member, UseR!2019 international conference \\[2.5mm]
-\texttt{2016}		& Scientific committee president, Rencontres R national conference \\[2.5mm]
-\texttt{2015-2019}		& Member of the Conseil Scientifique des Utilisateurs (CSU) of the MIGALE\\
-					& Bioinformatics platform (INRA, Jouy en Josas) \\[2.5mm]
-\texttt{2010} 		& Chair, Committee on Student Pro Bono Statistics of the ASA \\[2.5mm]
-\texttt{2009-2010} 	& Member, Committee on Student Pro Bono Statistics of the American Statistical\\
-					& Association (ASA)\\[2.5mm]
-\texttt{2009}		& Organizer of an invited round table ({\it The Pros of Pro Bono Statistics}) at the\\
-					& Joint Statistical Meetings of the American Statistical Association (ASA) in\\
-					& Washington, DC, USA \\[2.5mm]
-\texttt{2006-2010}	& Member, Statistics in the Community (StatCom) at Purdue University:\\
-					& StatCom is a volunteer organization of graduate students that provides free\\
-					& professional statistical consulting services to government and nonprofit groups
-\end{longtable}
+\hypertarget{advising}{%
+\section{Advising}\label{advising}}
 
+\begin{cventries}
+    \cventry{L2 internship}{Alexandre Asset}{2021}{}{\begin{cvitems}
+\item Inference of co-expression networks from intervention transcriptomic data (with Florence Jaffrézic and Denis Laloë)
+\end{cvitems}}
+    \cventry{M1 internship}{Solène Pety}{2021}{}{\begin{cvitems}
+\item Knowledge transfer using multivariate gene expression projections onto a large-scale reference database (with Catherine Giauffret)
+\end{cvitems}}
+    \cventry{PhD}{Fanny Mollandin}{2019-2022}{}{\begin{cvitems}
+\item Incorporating known functional annotations into Bayesian genomic prediction models (with Pascal Croiseau, co-funding from EU Horizon 2020 RIA grant GENE-SWitCH)
+\end{cvitems}}
+    \cventry{M2 internship}{Raphaëlle Momal-Leisenring}{2017}{}{\begin{cvitems}
+\item Integrative statistical analysis of multi-omics data
+\end{cvitems}}
+    \cventry{M2 internship}{Frédéric Jehl}{2017}{}{\begin{cvitems}
+\item Impact of heat stress on liver and blood transcriptomes of laying hens (with Tatiana Zerjal)
+\end{cvitems}}
+    \cventry{3-month PhD Erasmus+ Learning Mobility}{Dr. Manuel Revilla Sanchez}{2016}{}{\begin{cvitems}
+\item An integrative gene network analysis of the genetic determination of pig fatty acid composition (with Jordi Estelle and Yuliaxis Ramayo Caldas)
+\end{cvitems}}
+    \cventry{M2 internship}{Babacar Ciss}{2016}{}{\begin{cvitems}
+\item Constructing predictive models for ovine production data (with Eli Sellem, Allice)
+\end{cvitems}}
+    \cventry{M1 internship}{Audrey Hulot}{2015}{}{\begin{cvitems}
+\item Incorporating a priori biological knowledge into gene network inference from observational and intervention gene expression data (with Florence Jaffrézic)
+\end{cvitems}}
+    \cventry{M1 internship}{Meriem Benabbas}{2015}{}{\begin{cvitems}
+\item Identifying differentially expressed genes from RNA-seq data using mixture models
+\end{cvitems}}
+    \cventry{PhD}{Gilles Monneret}{2014-2018}{}{\begin{cvitems}
+\item Estimation of causal effects in gene networks from observational and intervention data (with Grégory Nuel and Florence Jaffrézic)
+\end{cvitems}}
+    \cventry{M1 STV/EM-ABG internship}{Marc Teissier and Chaoyu Dong}{2014}{}{\begin{cvitems}
+\item Power to detect significantly differential gene expression using RNA-seq data
+\end{cvitems}}
+    \cventry{PhD}{Mélina Gallopin}{2012-2015}{}{\begin{cvitems}
+\item Clustering and network inference for RNA-seq data (with Gilles Celeux and Florence Jaffrézic)
+\end{cvitems}}
+    \cventry{M2 internship}{Rémi Bancal}{2012}{}{\begin{cvitems}
+\item Gene network estimation by adaptive knockout experiments (with Grégory Nuel and Florence Jaffrézic)
+\end{cvitems}}
+    \cventry{M2 internship}{Mélina Gallopin}{2012}{}{\begin{cvitems}
+\item Gene network inference from RNA sequencing expression data (with Gilles Celeux and Florence Jaffrézic)
+\end{cvitems}}
+\end{cventries}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\label{funding}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\colorbox[gray]{0.8}{\makebox[\textwidth][l]{\Large{\bf{ Funding}}}}\\
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\vspace*{-.5cm}\begin{center} \textbf{Current Research Support} \end{center}\vspace*{-.5cm}
-\begin{table}[H]
-\begin{tabular}{@{\hspace{3mm}}l@{}}
-$\bullet$ \textbf{GENE-SWitCH}: The regulatory genome of swine and chicken: functional annotation during\\
-development \\
-Principal investigators: Elisabetta Giuffra and Herve Acloque\\
-Role: Co-investigator and task leader\\
-Funding period: 2019 - 2023 \\
-Agency: H2020 RIA grant  \\
-\\
-$\bullet$ \textbf{EpiFun}: Systems biology for genomic selection \\
-Principal investigators: Nathalie Vialaneix and Thomas Faraut\\
-Role: Co-investigator\\
-Funding period: 2018 - 2020 \\
-Agency: INRA internal metaprogram grant  \\
-\\
-$\bullet$ \textbf{LIPOMEC}: Towards a better understanding of ruminant milk lipolysis through an integrative \\
- biology approach in milk and mammary epithelial cells \\
-Principal investigators: Christelle Cebo\\
-Role: Co-investigator\\
-Funding period: 2018 - 2022 \\
-Agency: French National Research Agency (ANR) grant   \\
-\\
-\end{tabular}
-\end{table}
+\begin{cventries}
+    \cventry{PhD advisory committee member}{Thibault Poinsignon}{2021-2023}{}{}\vspace{-4.0mm}
+    \cventry{PhD evaluation committee member (rapportrice)}{Nicolas Jouvin}{2021}{}{}\vspace{-4.0mm}
+    \cventry{PhD evaluation committee member (rapportrice)}{Lucile Broséus}{2021}{}{}\vspace{-4.0mm}
+    \cventry{PhD advisory committee member}{Wilfried Heyse}{2020-2022}{}{}\vspace{-4.0mm}
+    \cventry{PhD advisory committee member}{Antoine Leduc}{2019-2022}{}{}\vspace{-4.0mm}
+    \cventry{PhD evaluation committee member (rapportrice)}{Alyssa Imbert}{2018}{}{}\vspace{-4.0mm}
+    \cventry{PhD advisory committee member}{Frédéric Jehl}{2017-2020}{}{}\vspace{-4.0mm}
+    \cventry{PhD evaluation committee member}{Valentin Voillet}{2016}{}{}\vspace{-4.0mm}
+    \cventry{PhD advisory committee member}{Gabriel Guillocheau}{2015-2018}{}{}\vspace{-4.0mm}
+\end{cventries}
 
+\hypertarget{teaching}{%
+\section{Teaching}\label{teaching}}
 
-\vspace*{-.5cm}\begin{center} \textbf{Past Research Support} \end{center}\vspace*{-.5cm}
-\begin{longtable}{@{\hspace{3mm}}l@{}}
-$\bullet$ \textbf{Microficient}: Relationships between digestive microbiota and feed efficiency in cattle \\
-Principal investigators: Yuliaxis Ramayo and Gilles Renand\\
-Role: Co-investigator\\
-Funding period: 2016 - 2019 \\
-Agency: AP-2016-007 \\
-\\
-$\bullet$ \textbf{CARISTO-PF}:  Characterization and management of health and environmental risks linked \\
-to the development of ciguatera in phytobenthos in French Polynesia \\
-Principal investigator: Gregory Nuel \\
-Role: Co-investigator\\
-Funding period: 2016 - 2019 \\
-Agency: French Polynesia Territory grant  \\
-\\
-$\bullet$ \textbf{MixStatSeq}: Mixture-based procedures for statistical analysis of RNA-seq data \\
-Principal investigator: Cathy Maugis-Rabusseau \\
-Role: Co-investigator\\
-Funding period: March 2014 - February 2018 \\
-Agency: French National Research Agency (ANR) grant (ANR-13-JS01-0001-01) \\
-\\
-$\bullet$ \textbf{SalmoCar}: Genetic and microbiotal control of \textit{Salmonella} carriage in chicken and mice \\
-Principal investigator: Xavier Montagutelli  \\
-Role: Co-investigator\\
-Funding period: January 2015 - December 2017 \\
-Agency: Institut Carnot Pasteur Maladies Infectieuses (PMI) / Institut Carnot Sant{\'e} Animale \\
-(ICSA) grant \\
-\\
-$\bullet$ \textbf{COSI-net}: Using COmbinatorial gene Silencing \& Inactivation to infer gene NETworks\\
-Principal investigator: Andrea Rau  \\
-Funding period: August 2015 - December 2016 \\
-Agency: INRA Animal Genetics Department internal grant \\
-\\
-$\bullet$ \textbf{Causality}: Causal network inference \\
-Principal investigator: Florence Jaffr{\'e}zic  \\
-Role: Co-investigator\\
-Funding period: January 2014 - December 2014 \\
-Agency: INRA Animal Genetics Department internal grant
-\end{longtable}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\label{advising}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\colorbox[gray]{0.8}{\makebox[\textwidth][l]{\Large{\bf{ Advising}}}}\\
-%\begin{center} \textbf{Current Ph.D. and Master's students} \end{center}\vspace*{-.5cm}
-
-
-
-
-%\vspace*{-.5cm}\begin{center} \textbf{Current Master's internship projects} \end{center}\vspace*{-.5cm}
-\begin{table}[H]
-\begin{tabular}{@{\hspace{3mm}}l@{}}
-$\bullet$ Fanny Mollandin (2019-2022 Ph.D., co-supervision with P. Croiseau)\\
-Incorporating known functional annotations into Bayesian genomic prediction models \\[1.5mm]
-\end{tabular}
-\end{table}
-
-
-\vspace*{-.5cm}\begin{center} \textbf{Alumni} \end{center}\vspace*{-.5cm}
-%\begin{table}[H]
-%\begin{tabular}{@{\hspace{3mm}}l@{}}
-\begin{longtable}{@{\hspace{3mm}}l@{}}
-$\bullet$ Dr. Gilles Monneret (2014-2017, Ph.D., co-supervision with F. Jaffr{\'e}zic and G. Nuel)\\
-Estimation of causal effects in gene networks from observational and intervention data \\[1.5mm]
-$\bullet$ Rapha{\"e}lle Momal-Leisenring (2017, M2 intern) \\
-Integrative statistical analysis of multi-omics data\\[1.5mm]
-$\bullet$ Fr{\'e}d{\'e}ric Jehl (2017, M2 intern, co-supervision with T. Zerjal) \\
-Impact of heat stress on liver and blood transcriptomes of laying hens\\[1.5mm]
-$\bullet$ Dr. Manuel Revilla Sanchez (2016 3-month Ph.D. Erasmus+ Learning Mobility, co-supervison with \\
-Jordi Estelle and Yuliaxis Ramayo Caldas and Ph.D. manuscript {\it rapporteur})\\
-An integrative gene network analysis of the genetic determination of pig fatty acid composition\\[1.5mm]
-$\bullet$ Babacar Ciss (2016, M2 intern, co-supervision with E. Sellem)\\
-Constructing predictive models for ovine production data  \\[1.5mm]
-$\bullet$ Dr. M{\'e}lina Gallopin (2012-2015, Ph.D., co-supervision with G. Celeux and F. Jaffr{\'e}zic)\\
-Classification and network inference for RNA-seq data\\[1.5mm]
-$\bullet$ Audrey Hulot (2015, M1 intern)\\
-Incorporating a priori biological knowledge into gene network inference from observational and \\
-intervention gene expression data \\[1.5mm]
-$\bullet$ Meriem Benabbas (2015, M1 intern)\\
-Identifying differentially expressed genes from RNA-seq data using mixtures of generalized \\
-linear models \\[1.5mm]
-$\bullet$ Marc Teissier and Chaoyu Dong (2014, Master STV/EM-ABG)\\
-Power to detect significantly differential gene expression using RNA-seq data \\[1.5mm]
-$\bullet$ M{\'e}lina Gallopin (2012, M2 intern)\\
-Gene network inference from RNA-seq data \\[1.5mm]
-% (co-supervision with F. Jaffr{\'e}zic and G. Celeux)
-$\bullet$ R{\'e}mi Bancal (2012, M2 intern)\\
-Gene network estimation by adaptive knockout experiments 
-% (co-supervision with Gr{\'e}gory Nuel and Florence Jaffr{\'e}zic)
-%\end{tabular}
-%\end{table}
-\end{longtable}
-
-
-\vspace*{-.5cm}\begin{center} \textbf{Membership in advisory and evaluation committees} \end{center}\vspace*{-.5cm}
-%\begin{table}[H]
-%\begin{tabular}{@{\hspace{3mm}}l@{}}
-\begin{longtable}{@{\hspace{3mm}}l@{}}
-% Lucile Broseus (2020, rapportrice of Ph.D. evaluation committee)
-% Member of evaluation committee for assistnat professor position at Agrocampus Ouest (2020)
-$\bullet$ Antoine Leduc (2019-2022, member of Ph.D. advisory committee) \\[1.5mm]
-$\bullet$ Dr. Alyssa Imbert (2018, member of Ph.D. evaluation committee) \\[1.5mm]
-$\bullet$ Fr{\'e}d{\'e}ric Jehl (2017-2020, member of Ph.D. advisory committee) \\[1.5mm]
-$\bullet$ Gabriel Guillocheau (2016-2018, member of Ph.D. advisory committee) \\[1.5mm]
-$\bullet$ Dr. Valentin Voillet (2016, member of Ph.D. evaluation committee) \\[1.5mm]
-$\bullet$ Member of evaluation committee for assistant professor position at Universit{\'e} Rennes I, \\
-UMR Inserm IRSET 1085 (2016) \\[1.5mm]
-$\bullet$ Member of evaluation committee for assistant professor position at Universit{\'e} Rennes I, \\
-IGDR (Institute of Genetics and Developmental biology of Rennes), CNRS UMR 6290 (2013) \\[1.5mm]
-\end{longtable}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\label{enseignement}
-% Activites d'enseignement
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\colorbox[gray]{0.8}{\makebox[\textwidth][l]{\Large{\bf{ Teaching}}}}\\
-\begin{longtable}{ll}
-
-\texttt{2020}  	& \textbf{Agrocampus Researcher School} (6-7 February)\\[1.2mm]
-				& Statistical analysis of RNA-seq data \\
-				& {\it Type} : Instructor (with S. Lagarrigue and Y. Blum) \\
-				& $\bullet$ Rennes\\[1.2mm]
-
-\texttt{2019}  	& \textbf{Researcher training session: From gene expression to genomic networks} (17-22 July) \\
-				& Differential analysis of RNA-seq data \\
-				& {\it Type} : Instructor (with M.-L. Martin-Magniette and E. Delannoy)\\
-				& $\bullet$ INRAE AgroImpact\\[1.2mm]
-
-\texttt{2019}     & \textbf{Analysis of livestock metagenomics datasets} (13-17 May)\\[1.2mm]
-				& {\it Type}: Instructor (with J. Estell{\'e}\\
-				& $\bullet$ INRA URZ, Guadeloupe\\[1.2mm]
-
-\texttt{2019}     & \textbf{Physiological genomics} (10 hours)\\[1.2mm]
-				& R Bootcamp \\
-				& {\it Type}: Instructor\\
-				& $\bullet$ Medical College of Wisconsin\\[1.2mm]
-				
-\texttt{2018}     & \textbf{Data management and visualization in R} (3 course units)\\[1.2mm]
-				& {\it Type}: Instructor \\
-				& $\bullet$ University of Wisconsin-Milwaukee\\[1.2mm]
-				
-\texttt{2017}  	& \textbf{PiGutNet Training School} (3 hours)\\[1.2mm]
-				& Differential abundance analysis for microbial marker-gene surveys with \texttt{metagenomeSeq} \\
-				& {\it Type} : Instructor  \\
-				& $\bullet$ Jouy en Josas\\[1.2mm]		
-				
-\texttt{2017}  	& \textbf{Mathematics for the Life Sciences: Statistical Engineering and Genomics, M2} \\
- & Bayesian statistics for genomics course (18 hours)\\[1.2mm]
-				& {\it Type} : Instructor (coursework and labs)\\
-				& {\it Program} : Bayesian statistics for population genetics, numeric methods for Bayesian \\
-				& computation, empirical Bayes, approximate Bayesian computation, Bayesian integrative\\
-				& analysis of multi-omics data \\
-				& {\it Supervisor} : Marie-Luce Taupin\\
-				& $\bullet$ Universit{\'e} d'{\'E}vry Val d'Essonne\\[1.2mm]
-				
-\texttt{2017}  	& \textbf{Agrocampus Researcher School} (1-2 February)\\[1.2mm]
-				& Statistical analysis of RNA-seq data \\
-				& {\it Type} : Instructor (with S. Lagarrigue and Y. Blum) \\
-				& $\bullet$ Rennes\\[1.2mm]
-				
-\texttt{2017}  	& \textbf{Biostatistics Master, M2}: Genomics course (12 hours)\\[1.2mm]
-				& {\it Type} : Instructor (coursework and labs)\\
-				& {\it Program} : Differential analysis for RNA sequencing data, systems biology approaches \\
-				& for gene network inference \\
-				& {\it Supervisor} : Brigitte Gelein\\
-				& $\bullet$ Ensai, Rennes\\[1.2mm]
-
-\texttt{2016}  	& \textbf{SPS Summer School: From gene expression to genomic networks} (17-22 July) \\
- 				& Co-expression analysis of RNA-seq data (3 hours)\\[1.2mm]
-				& {\it Type} : Instructor (coursework and labs)\\
-				& {\it Program} : Co-expression, K-means, hierarchical clustering, finite mixture models \\
-				& {\it Supervisor} : Marie-Laure Martin-Magniette\\
-				& $\bullet$ Institute of Plant Sciences Paris-Saclay\\[1.2mm]
-
-
-\texttt{2016}  	& \textbf{Mathematics for the Life Sciences: Statistical Engineering and Genomics, M2} \\
- & Bayesian statistics for genomics course (18 hours)\\[1.2mm]
-				& {\it Type} : Instructor (coursework and labs)\\
-				& {\it Program} : Bayesian statistics for population genetics, numeric methods for Bayesian \\
-				& computation, empirical Bayes, approximate Bayesian computation, Bayesian integrative\\
-				& analysis of multi-omics data \\
-				& {\it Supervisor} : Marie-Luce Taupin\\
-				& $\bullet$ Universit{\'e} d'{\'E}vry Val d'Essonne\\[1.2mm]
-				
-				
-\texttt{2016}  	& \textbf{Agrocampus Researcher School} (10-11 February)\\[1.2mm]
-				& Statistical analysis of RNA-seq data \\
-				& {\it Type} : Instructor (with S. Lagarrigue and Y. Blum) \\
-				& $\bullet$ Rennes\\[1.2mm]
-				
-\texttt{2016}  	& \textbf{Biostatistics Master, M2}: Genomics course (33 hours)\\[1.2mm]
-				& {\it Type} : Instructor (coursework and labs), and genomics project supervision\\
-				& {\it Program} : Differential analysis for RNA sequencing data, systems biology approaches \\
-				& for gene network inference, and analysis of multi-omic TCGA data \\
-				& {\it Supervisor} : Brigitte Gelein\\
-				& $\bullet$ Ensai, Rennes\\[1.2mm]
-
-\texttt{2015}  	& \textbf{Mathematical Engineering for Life Sciences Master, M1}: Case study (10 hours)\\[1.2mm]
-				& {\it Type} : Instructor (coursework and labs)\\
-				& {\it Program} : Differential analysis for RNA sequencing data, systems biology approaches \\
-				& {\it Supervisor} : Etienne Birmel{\'e}\\
-				& $\bullet$ Universit{\'e} Paris Descartes, Paris\\[1.2mm]
-
-\texttt{2015}  	& \textbf{Biostatistics Master, M2}: Genomics course (33 hours)\footnote{The genomics course at Ensai was significantly expanded and re-developed in 2015 by myself and Micka{\"e}l Guedj.}\\[1.2mm]
-				& {\it Type} : Instructor (coursework and labs), and genomics project supervision\\
-				& {\it Program} : Differential analysis for RNA sequencing data, systems biology approaches \\
-				& for gene network inference, and analysis of the Sequencing Quality Control Consortium \\
-				& RNA-seq and qPCR data \\
-				& {\it Supervisor} : Brigitte Gelein\\
-				& $\bullet$ Ensai, Rennes\\[1.2mm]
-
-\texttt{2013}  	& \textbf{BioBayes Researcher School} (7-11 October)\\[1.2mm]
-				& Bayesian statistical methods: Introduction to theory and applications in food, \\
-				& environment, epidemiology, and genetics \\
-				& {\it Type} : Scientific committee member and Instructor (coursework and labs)\\
-				& $\bullet$ Cannes Mandelieu\\[1.5mm]
-			
-\texttt{2013}  	& \textbf{Biostatistics Master, M2}: Genomics course (6 hours)\\[1.2mm]
-				& {\it Type} : Instructor (coursework and labs) and genomics project jury member\\
-				& {\it Program} : Differential analysis for RNA sequencing data\\
-				& {\it Supervisor} : Brigitte Gelein\\
-				& $\bullet$ Ensai, Rennes\\[1.5mm]
-
-				
-				
-\texttt{2012}  	& \textbf{Training school on rabbit and pig genome analysis} (6 hours)\\[1.2mm]
-				& {\it Type} : Instructor\\
-				& {\it Program} : Differential analysis for microarray and RNA sequencing data\\
-				& $\bullet$ COST action research school, Norwich, United Kingdom\\[1.5mm]
-				
-				
-				
-\texttt{2012}  	& \textbf{Biostatistics Master, M2}: Genomics course (6 hours)\\[1.2mm]
-				& {\it Type} : Instructor (coursework and labs)\\
-				& {\it Program} : Differential analysis for RNA sequencing data\\
-				& {\it Supervisor} : Marian Hristache\\
-				& $\bullet$ Ensai, Rennes\\[1.5mm]
-				
-				
-				
-\texttt{2012}  	& \textbf{Statistical Methods for Genome Enabled Prediction} (2 hours)\\[1.2mm]
-				& {\it Type} : Intervenante (cours)\\
-				& {\it Programme} : Approximate Bayesian methods: Application to gene regulatory networks\\
-				& {\it Enseignant principal} : Daniel Gianola\\
-				& $\bullet$ European Graduate School in Animal Breeding and Genetics, Paris\\[1.5mm]
-				
-				
-
-\texttt{2012}  	& \textbf{Next generation sequencing school for INRA researchers} (2 hours)\\[1.2mm]
-				& {\it Type} : Instructor\\
-				& {\it Program} : Differential analysis for RNA sequencing data\\
-				& $\bullet$ Research school (INRA), {\'E}cully\\[1.5mm]
-		
-				
-\texttt{2012}  	& \textbf{Bioinformatics and Biostatistics / Mathematical engineering / Probability}\\
-				& \textbf{and Statistics Master, M2}: Computational biostatistics (6 hours)\\[1.2mm]
-				& {\it Type} : Instructor (coursework and labs)\\
-				& {\it Program} : Differential analysis for RNA sequencing data\\
-				& {\it Supervisor} : Marc Lavielle\\
-				& $\bullet$ UFR de Sciences, Universit{\'e} Paris-Sud 11\\[1.5mm]
-				
-				
-				
-\texttt{2011}  	& \textbf{Bioinformatics and Biostatistics Master, M1}: Statistical modeling (24 hours)\\[1.2mm]
-				& {\it Type} : Lab assistant (R) \\
-				& {\it Program} : Maximum likelihood estimation of non-linear models, Wald and likelihood\\
-				& ratio tests, logistic regression, bootstrap\\
-				& {\it Supervisor} : Marie-Anne Poursat\\
-				& $\bullet$ UFR de Sciences, Universit{\'e} Paris-Sud 11\\[1.5mm]	
-				
-			
-
-			
-\texttt{2011}  	& \textbf{Bioinformatics and Biostatistics / Mathematical engineering / Probability}\\
-				& \textbf{and Statistics Master, M2}: Computational biostatistics (12 hours)\\[1.2mm]
-				& {\it Type} : Instructor (coursework and labs)\\
-				& {\it Program} : Introduction to Bayesian analysis for population genetics, introduction \\
-				& to statistical analysis for transcriptome data\\
-				& {\it Supervisor} : Marc Lavielle\\
-				& $\bullet$ UFR de Sciences, Universit{\'e} Paris-Sud 11\\[1.5mm]		
-				
-				
-				
-\texttt{2006}  	& \textbf{1st and 2nd year undergraduate}: Elementary statistical methods (60 hours)\\[1.2mm]
-				& {\it Type} : Lab assistant (SPSS) \\
-				& {\it Program} : Descriptive statistics, confidence intervals, simple linear regression,\\
-				& probability calculations, test statistics for means and proportions, correlation\\
-				& {\it Supervisor} : Ellen Gundlach\\
-				& $\bullet$ Department of Statistics, Purdue University (West Lafayette, Indiana, USA)\\[1.5mm]
-\end{longtable}
-\label{TotalPageNumber}
+\begin{cventries}
+    \cventry{Instructor (with S. Lagarrigue and Y. Blum) @ Rennes}{Agrocampus Researcher School (6-7 February)}{2020}{}{\begin{cvitems}
+\item Statistical analysis of RNA-seq data
+\end{cvitems}}
+    \cventry{Instructor (with M.-L. Martin-Magniette and E. Delannoy) @ INRAE, AgroImpact}{Researcher training session: From gene expression to genomic networks (17-22 July)}{2019}{}{\begin{cvitems}
+\item Differential analysis of RNA-seq data
+\end{cvitems}}
+    \cventry{Instructor (with J. Estellé @ INRA URZ, Guadeloupe}{Analysis of livestock metagenomics datasets (13-17 May)}{2019}{}{}\vspace{-4.0mm}
+    \cventry{Instructor @ Medical College of Wisconsin}{Physiological genomics (10 hours)}{2019}{}{\begin{cvitems}
+\item R Bootcamp
+\end{cvitems}}
+    \cventry{Instructor @ University of Wisconsin-Milwaukee}{Data management and visualization in R (3 course units)}{2018}{}{}\vspace{-4.0mm}
+    \cventry{Instructor @ INRA, Jouy en Josas}{PiGutNet Training School (3 hours)}{2017}{}{\begin{cvitems}
+\item Differential abundance analysis for microbial marker-gene surveys with metagenomeSeq
+\end{cvitems}}
+    \cventry{Instructor (coursework and labs) @ Université d'Evry Val d'Essonne}{Bayesian statistics for genomics course (18 hours)}{2017}{}{\begin{cvitems}
+\item Mathematics for the Life Sciences: Statistical Engineering and Genomics, M2
+\end{cvitems}}
+    \cventry{Instructor (with S. Lagarrigue and Y. Blum) @ Rennes}{Agrocampus Researcher School (1-2 February)}{2017}{}{\begin{cvitems}
+\item Statistical analysis of RNA-seq data
+\end{cvitems}}
+    \cventry{Instructor (coursework and labs) @ Ensai, Rennes}{Genomics course (12 hours)}{2017}{}{\begin{cvitems}
+\item Biostatistics M2
+\end{cvitems}}
+    \cventry{Instructor (coursework and labs) @ Institute of Plant Sciences Paris-Saclay}{SPS Summer School: From gene expression to genomic networks (17-22 July)}{2016}{}{\begin{cvitems}
+\item Co-expression analysis of RNA-seq data (3 hours
+\end{cvitems}}
+    \cventry{Instructor (coursework and labs) @ Université d'Evry Val d'Essonne}{Bayesian statistics for genomics course (18 hours)}{2016}{}{\begin{cvitems}
+\item Mathematics for the Life Sciences: Statistical Engineering and Genomics, M2
+\end{cvitems}}
+    \cventry{Instructor (with S. Lagarrigue and Y. Blum) @ Rennes}{Agrocampus Researcher School (10-11 February)}{2016}{}{\begin{cvitems}
+\item Statistical analysis of RNA-seq data
+\end{cvitems}}
+    \cventry{Instructor (coursework and labs) @ Ensai, Rennes}{Genomics course (33 hours)}{2016}{}{\begin{cvitems}
+\item Biostatistics M2
+\end{cvitems}}
+    \cventry{Instructor (coursework and labs) @ Université Paris Descartes}{Mathematical Engineering for Life Sciences Master, M1: Case study (10 hours)}{2015}{}{}\vspace{-4.0mm}
+    \cventry{Instructor (coursework and labs) @ Ensai, Rennes}{Genomics course (33 hours)}{2015}{}{\begin{cvitems}
+\item Biostatistics M2. Note: The genomics course at Ensai was significantly expanded and re-developed in 2015 by myself and Mickaël Guedj.
+\end{cvitems}}
+    \cventry{Scientific committee member and instructor (coursework and labs) @ Cannes Mandelieu}{BioBayes Researcher School (7-11 October)}{2013}{}{\begin{cvitems}
+\item Bayesian statistical methods: Introduction to theory and applications in food, environment, epidemiology, and genetics
+\end{cvitems}}
+    \cventry{Instructor (coursework and labs) @ Ensai, Rennes}{Genomics course (6 hours)}{2013}{}{\begin{cvitems}
+\item Biostatistics M2
+\end{cvitems}}
+    \cventry{Instructor @ COST action research school, Norwich, United Kingdom}{Training school on rabbit and pig genome analysis (6 hours)}{2012}{}{}\vspace{-4.0mm}
+    \cventry{Instructor (coursework and labs) @ Ensai, Rennes}{Genomics course (6 hours)}{2012}{}{\begin{cvitems}
+\item Biostatistics M2
+\end{cvitems}}
+    \cventry{Instructor @ European Graduate School in Animal Breeding and Genetics, Paris}{Statistical Methods for Genome Enabled Prediction (2 hours)}{2012}{}{\begin{cvitems}
+\item Approximate Bayesian methods: Application to gene regulatory networks
+\end{cvitems}}
+    \cventry{Instructor @ INRA research school, Ecully}{Next generation sequencing school for INRA researchers (2 hours)}{2012}{}{}\vspace{-4.0mm}
+    \cventry{Instructor (coursework and labs) @ UFR de Sciences, Université Paris-Sud 11}{Computational biostatistics (6 hours)}{2012}{}{\begin{cvitems}
+\item Bioinformatics and Biostatistics / Mathematical engineering / Probability and Statistics M2
+\end{cvitems}}
+    \cventry{Lab assistant (R) @ UFR de Sciences, Université Paris-Sud 11}{Statistical modeling (24 hours)}{2011}{}{\begin{cvitems}
+\item Bioinformatics and Biostatistics Master, M1
+\end{cvitems}}
+    \cventry{Instructor (coursework and labs) @ UFR de Sciences, Université Paris-Sud 11}{Bioinformatics and Biostatistics / Mathematical engineering / Probability and Statistics M2 (12 hours)}{2011}{}{\begin{cvitems}
+\item Bioinformatics and Biostatistics / Mathematical engineering / Probability and Statistics M2
+\end{cvitems}}
+    \cventry{Lab assistant (SPSS) @ Department of Statistics, Purdue University (West Lafayette, Indiana, USA)}{Elementary statistical methods (60 hours)}{2006}{}{\begin{cvitems}
+\item 1st and 2nd year undergraduate
+\end{cvitems}}
+\end{cventries}
 
 \end{document}
