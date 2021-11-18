@@ -10,7 +10,7 @@ twitter: andreamrau
 github: andreamrau
 orcid: 0000-0001-6469-488X
 googlescholar: 9__bzfgAAAAJ
-date: "April 2021"
+date: "November 2021"
 output:
   vitae::awesomecv:
     keep_tex: true
@@ -25,6 +25,8 @@ library(glue)
 library(googlesheets4)
 library(dplyr)
 id <- "1szi9SA4sKl9Fmh-MWrepS1M9T36-HLvMSpyW9RJh-ws"
+# gs4_deauth()
+# gs4_auth()
 ```
 
 <!-- date: "`r format(Sys.time(), '%B %Y')`" -->
