@@ -10,7 +10,7 @@ twitter: andreamrau
 github: andreamrau
 orcid: 0000-0001-6469-488X
 googlescholar: 9__bzfgAAAAJ
-date: "November 2021"
+date: "January 2022"
 output:
   vitae::awesomecv:
     keep_tex: true
@@ -97,6 +97,7 @@ d %>% mutate(arrow = "\\rightarrow") %>%
 
 ```{r}
 tribble(~year, ~name, ~shortname,
+        "2022-present", "Femmes & Sciences", "F&S",
         "2011-present", "Société Française de la Statistique", "SFdS",
         "2005-present", "American Statistical Association", "ASA") %>%
   brief_entries(with=year, when=shortname, what=name)
@@ -288,5 +289,15 @@ d %>%
   mutate(desc =  glue("{type} @ {location}")) %>%
   detailed_entries(where=year, with=name_full, 
                    why=description, what=desc,
+                   .protect=FALSE)
+```
+
+# Outreach
+
+```{r, cache=TRUE}
+d <- googlesheets4::range_read(googlesheets4::as_sheets_id(id),
+                               sheet="outreach")
+d %>%
+  detailed_entries(with=role, what=description, where=year,
                    .protect=FALSE)
 ```
