@@ -1,7 +1,7 @@
 ---
 name: Andrea
 surname: Rau
-position: "Research Scientist &bull; Chargée de Recherche"
+position: "Research Director &bull; Directrice de Recherche"
 address: "INRAE &bull; French National Research Institute for Agriculture, Food and Environment"
 phone: +33 1 34 65 22 82
 www: andrea-rau.com
@@ -10,7 +10,7 @@ twitter: andreamrau
 github: andreamrau
 orcid: 0000-0001-6469-488X
 googlescholar: 9__bzfgAAAAJ
-date: "January 2022"
+date: "January 2023"
 output:
   vitae::awesomecv:
     keep_tex: true
@@ -25,21 +25,18 @@ library(glue)
 library(googlesheets4)
 library(dplyr)
 id <- "1szi9SA4sKl9Fmh-MWrepS1M9T36-HLvMSpyW9RJh-ws"
-# gs4_deauth()
+gs4_deauth()
 # gs4_auth()
 ```
 
 <!-- date: "`r format(Sys.time(), '%B %Y')`" -->
 
-
 # About me
 
 My research is focused on developing and writing software for sound statistical methods for genomic and transcriptomic data analysis, including differential expression analyses, co-expression analyses, network inference, and integrative multi-omic analyses. 
 
-I currently belong to two INRAE labs:  
-
-- [**Animal Genetics and Integrative Biology**](https://www6.jouy.inra.fr/gabi_eng/) (GABI) research unit (Jouy en Josas, France) in the Genomics, Biodiversity, Bioinformatics, Statistics (GiBBS) team  
-- Cross-border [**BioEcoAgro**](https://www.bioecoagro.eu/) research unit (Estrées-Mons, France)
+I am a member of the [**Animal Genetics and Integrative Biology**](https://www6.jouy.inra.fr/gabi_eng/) (GABI) research unit (Jouy en Josas, France) 
+in the Genomics, Biodiversity, Bioinformatics, Statistics (GiBBS) team.  
 
 *Keywords*: Analysis of high-throughput sequencing data, mixture models, supervised classification methods, multi-omic integration, gene regulatory networks
 
