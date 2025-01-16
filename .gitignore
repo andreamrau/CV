@@ -3,3 +3,7 @@
 .RData
 .Ruserdata
 Rau_Andrea_CV_cache/
+*.Rproj
+*.aux
+*.out
+*.tex
