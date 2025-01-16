@@ -10,7 +10,7 @@ twitter: andreamrau
 github: andreamrau
 orcid: 0000-0001-6469-488X
 googlescholar: 9__bzfgAAAAJ
-date: "January 2023"
+date: "January 2025"
 output:
   vitae::awesomecv:
     keep_tex: true
