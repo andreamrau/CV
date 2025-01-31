@@ -6,7 +6,6 @@ address: "INRAE &bull; French National Research Institute for Agriculture, Food 
 phone: +33 1 34 65 22 82
 www: andrea-rau.com
 email: "andrea.rau@inrae.fr"
-twitter: andreamrau
 github: andreamrau
 orcid: 0000-0001-6469-488X
 googlescholar: 9__bzfgAAAAJ
