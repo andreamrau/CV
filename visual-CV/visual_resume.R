@@ -45,7 +45,7 @@ VisualResume::VisualResume(
                                 "Research Scientist", "Visiting Scholar", "AgreenSkills+ Fellow", "Intern", "Intern",
                                 "Research Director"),
                         start = c(2001.75, 2005.75, 2007.75, 2010.75, 2011.75, 2016.58, 2017.83, 2005, 2006.4,2023),
-                        end = c(2005.42, 2007.74, 2010.67, 2011.75, 2023, 2016.75, 2019.5, 2005.15, 2006.7, 2024),
+                        end = c(2005.42, 2007.74, 2010.67, 2011.75, 2023, 2016.75, 2019.5, 2005.15, 2006.7, 2026),
                         side = c(1, 1, 1, 0, 0, 0, 0, 0, 0, 0)),
   milestones = data.frame(title = c("BA", "MS", "PhD"),
                           sub = c("Math/\nFrench", "Applied\nStatistics", "Statistics"),
